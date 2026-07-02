@@ -28,7 +28,7 @@ import {
   type TelemetryTarget,
   type ConfigParameters,
   type ExtensionLoader,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import { logger } from '../utils/logger.js';
 import type { Settings } from './settings.js';
@@ -275,8 +275,7 @@ async function refreshAuthentication(
         `[${logPrefix}] COMPUTE_ADC failed or not available: ${adcMessage}`,
       );
 
-      const useComputeAdc =
-        process.env['ZERO_CLI_USE_COMPUTE_ADC'] === 'true';
+      const useComputeAdc = process.env['ZERO_CLI_USE_COMPUTE_ADC'] === 'true';
       const isHeadless = isHeadlessMode();
 
       if (isHeadless || useComputeAdc) {

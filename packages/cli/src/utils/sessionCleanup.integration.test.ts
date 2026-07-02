@@ -11,7 +11,7 @@ import {
   SESSION_FILE_PREFIX,
   type Config,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 // Create a mock config for integration testing
 function createTestConfig(): Config {

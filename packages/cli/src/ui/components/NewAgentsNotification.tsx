@@ -6,7 +6,7 @@
 
 import { useState } from 'react';
 import { Box, Text } from 'ink';
-import { type AgentDefinition } from '@google/zero-cli-core';
+import { type AgentDefinition } from '@allhands/zero-cli-core';
 import { theme } from '../semantic-colors.js';
 import {
   RadioButtonSelect,

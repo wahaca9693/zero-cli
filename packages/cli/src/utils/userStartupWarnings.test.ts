@@ -16,7 +16,7 @@ import {
 import {
   getCompatibilityWarnings,
   WarningPriority,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 // Mock os.homedir to control the home directory in tests
 vi.mock('node:os', async (importOriginal) => {
@@ -27,9 +27,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     getCompatibilityWarnings: vi.fn().mockReturnValue([]),
@@ -195,7 +195,7 @@ describe('getUserStartupWarnings', () => {
   describe('folder trust check', () => {
     it('should throw FatalUntrustedWorkspaceError when untrusted in headless mode', async () => {
       const { isHeadlessMode, FatalUntrustedWorkspaceError } = await import(
-        '@google/zero-cli-core'
+        '@allhands/zero-cli-core'
       );
       vi.mocked(isFolderTrustEnabled).mockReturnValue(true);
       vi.mocked(isWorkspaceTrusted).mockImplementation(() => {
@@ -211,7 +211,7 @@ describe('getUserStartupWarnings', () => {
     });
 
     it('should not return a warning when trusted in headless mode', async () => {
-      const { isHeadlessMode } = await import('@google/zero-cli-core');
+      const { isHeadlessMode } = await import('@allhands/zero-cli-core');
       vi.mocked(isFolderTrustEnabled).mockReturnValue(true);
       vi.mocked(isWorkspaceTrusted).mockReturnValue({
         isTrusted: true,
@@ -224,7 +224,7 @@ describe('getUserStartupWarnings', () => {
     });
 
     it('should not return a warning when untrusted in interactive mode', async () => {
-      const { isHeadlessMode } = await import('@google/zero-cli-core');
+      const { isHeadlessMode } = await import('@allhands/zero-cli-core');
       vi.mocked(isFolderTrustEnabled).mockReturnValue(true);
       vi.mocked(isWorkspaceTrusted).mockReturnValue({
         isTrusted: false,

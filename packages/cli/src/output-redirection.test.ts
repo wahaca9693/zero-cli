@@ -6,12 +6,12 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { initializeOutputListenersAndFlush } from './zero.js';
-import { coreEvents, CoreEvent, type Config } from '@google/zero-cli-core';
+import { coreEvents, CoreEvent, type Config } from '@allhands/zero-cli-core';
 
 // Mock core dependencies
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     writeToStdout: vi.fn(),
@@ -19,7 +19,7 @@ vi.mock('@google/zero-cli-core', async (importOriginal) => {
   };
 });
 
-import { writeToStdout, writeToStderr } from '@google/zero-cli-core';
+import { writeToStdout, writeToStderr } from '@allhands/zero-cli-core';
 
 describe('Output Redirection', () => {
   beforeEach(() => {

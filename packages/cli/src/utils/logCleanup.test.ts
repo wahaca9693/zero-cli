@@ -14,7 +14,7 @@ import {
 import * as path from 'node:path';
 import { cleanupBackgroundLogs } from './logCleanup.js';
 
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   ShellExecutionService: {
     getLogDir: vi.fn().mockReturnValue('/tmp/zero/tmp/background-processes'),
   },

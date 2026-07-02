@@ -6,7 +6,7 @@
 
 import type React from 'react';
 import { createContext, useContext, useMemo } from 'react';
-import type { Question } from '@google/zero-cli-core';
+import type { Question } from '@allhands/zero-cli-core';
 
 export interface AskUserState {
   questions: Question[];

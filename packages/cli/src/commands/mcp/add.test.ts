@@ -16,7 +16,7 @@ import {
 import yargs, { type Argv } from 'yargs';
 import { addCommand } from './add.js';
 import { loadSettings, SettingScope } from '../../config/settings.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 vi.mock('../utils.js', () => ({
   exitCli: vi.fn(),

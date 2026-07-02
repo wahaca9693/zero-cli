@@ -10,7 +10,7 @@ import { bugMemoryCommand } from './bugMemoryCommand.js';
 import { captureHeapSnapshot } from '../utils/memorySnapshot.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
 import { MessageType } from '../types.js';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 
 vi.mock('../utils/memorySnapshot.js', () => ({
   captureHeapSnapshot: vi.fn(),
@@ -25,9 +25,9 @@ vi.mock('node:fs/promises', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     debugLogger: {

@@ -7,7 +7,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { debugLogger, isNodeError, Storage } from '@google/zero-cli-core';
+import { debugLogger, isNodeError, Storage } from '@allhands/zero-cli-core';
 
 const MAX_HISTORY_LENGTH = 100;
 

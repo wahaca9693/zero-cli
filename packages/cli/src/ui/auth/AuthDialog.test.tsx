@@ -16,7 +16,7 @@ import {
   type Mock,
 } from 'vitest';
 import { AuthDialog } from './AuthDialog.js';
-import { AuthType, type Config, debugLogger } from '@google/zero-cli-core';
+import { AuthType, type Config, debugLogger } from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../../config/settings.js';
 import { AuthState } from '../types.js';
 import { RadioButtonSelect } from '../components/shared/RadioButtonSelect.js';
@@ -27,9 +27,9 @@ import { Text } from 'ink';
 import { RELAUNCH_EXIT_CODE } from '../../utils/processUtils.js';
 
 // Mocks
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     clearCachedCredentialFile: vi.fn(),
@@ -408,8 +408,7 @@ describe('AuthDialog', () => {
       {
         desc: 'calls setAuthState(Unauthenticated) on escape if auth method is set',
         setup: () => {
-          props.settings.merged.security.auth.selectedType =
-            AuthType.USE_ZERO;
+          props.settings.merged.security.auth.selectedType = AuthType.USE_ZERO;
         },
         expectations: (p: typeof props) => {
           expect(p.setAuthState).toHaveBeenCalledWith(

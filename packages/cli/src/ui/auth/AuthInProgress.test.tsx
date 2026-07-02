@@ -9,12 +9,12 @@ import { render } from '../../test-utils/render.js';
 import { act } from 'react';
 import { AuthInProgress } from './AuthInProgress.js';
 import { useKeypress, type Key } from '../hooks/useKeypress.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 // Mock dependencies
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     debugLogger: {

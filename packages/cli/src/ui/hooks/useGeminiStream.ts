@@ -45,7 +45,7 @@ import {
   buildToolVisibilityContext,
   UPDATE_TOPIC_TOOL_NAME,
   UPDATE_TOPIC_DISPLAY_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   Config,
   EditorType,
@@ -59,7 +59,7 @@ import type {
   ToolCallResponseInfo,
   ZEROErrorEventValue,
   RetryAttemptPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type Part, type PartListUnion, FinishReason } from '@google/genai';
 import type {
   HistoryItem,
@@ -260,8 +260,7 @@ export const useZEROStream = (
   const [pendingHistoryItem, pendingHistoryItemRef, setPendingHistoryItem] =
     useStateAndRef<HistoryItemWithoutId | null>(null);
 
-  const [lastZEROActivityTime, setLastZEROActivityTime] =
-    useState<number>(0);
+  const [lastZEROActivityTime, setLastZEROActivityTime] = useState<number>(0);
   const [pushedToolCallIds, pushedToolCallIdsRef, setPushedToolCallIds] =
     useStateAndRef<Set<string>>(new Set());
   const [_isFirstToolInGroup, isFirstToolInGroupRef, setIsFirstToolInGroup] =

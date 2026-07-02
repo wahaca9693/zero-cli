@@ -19,7 +19,7 @@ import {
   type ConfigParameters,
   type SandboxConfig,
 } from './config.js';
-import { createMockSandboxConfig } from '@google/zero-cli-test-utils';
+import { createMockSandboxConfig } from '@allhands/zero-cli-test-utils';
 import { DEFAULT_MAX_ATTEMPTS } from '../utils/retry.js';
 import { ExperimentFlags } from '../code_assist/experiments/flagNames.js';
 import { debugLogger } from '../utils/debugLogger.js';
@@ -3656,10 +3656,7 @@ describe('Config JIT Initialization', () => {
       config = new Config(params);
       await config.initialize();
 
-      const globalZEROMdPath = path.join(
-        Storage.getGlobalZERODir(),
-        'ZERO.md',
-      );
+      const globalZEROMdPath = path.join(Storage.getGlobalZERODir(), 'ZERO.md');
       expect(config.isPathAllowed(globalZEROMdPath)).toBe(true);
     });
 

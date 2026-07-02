@@ -13,7 +13,7 @@ import { useKeypress } from '../hooks/useKeypress.js';
 import {
   openBrowserSecurely,
   shouldLaunchBrowser,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { runExitCleanup } from '../../utils/cleanup.js';
 import type { AccountSuspensionInfo } from '../contexts/UIStateContext.js';
 

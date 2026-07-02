@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { AnsiOutput, CompletionBehavior } from '@google/zero-cli-core';
+import type { AnsiOutput, CompletionBehavior } from '@allhands/zero-cli-core';
 import {
   MAX_SHELL_OUTPUT_SIZE,
   SHELL_OUTPUT_TRUNCATION_BUFFER,

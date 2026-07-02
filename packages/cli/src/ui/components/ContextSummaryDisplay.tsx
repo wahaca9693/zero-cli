@@ -7,7 +7,7 @@
 import type React from 'react';
 import { Box, Text } from 'ink';
 import { theme } from '../semantic-colors.js';
-import { type IdeContext, type MCPServerConfig } from '@google/zero-cli-core';
+import { type IdeContext, type MCPServerConfig } from '@allhands/zero-cli-core';
 import { Command } from '../key/keyMatchers.js';
 import { formatCommand } from '../key/keybindingUtils.js';
 
@@ -60,9 +60,7 @@ export const ContextSummaryDisplay: React.FC<ContextSummaryDisplayProps> = ({
     }
     const allNamesTheSame = new Set(contextFileNames).size < 2;
     const name = allNamesTheSame ? contextFileNames[0] : 'context';
-    return `${zeroMdFileCount} ${name} file${
-      zeroMdFileCount > 1 ? 's' : ''
-    }`;
+    return `${zeroMdFileCount} ${name} file${zeroMdFileCount > 1 ? 's' : ''}`;
   })();
 
   const mcpText = (() => {

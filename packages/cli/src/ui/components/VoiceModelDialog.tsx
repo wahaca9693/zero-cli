@@ -12,11 +12,11 @@ import { DescriptiveRadioButtonSelect } from './shared/DescriptiveRadioButtonSel
 import { useSettingsStore } from '../contexts/SettingsContext.js';
 import { SettingScope } from '../../config/settings.js';
 import { useKeypress, type Key } from '../hooks/useKeypress.js';
-import { isBinaryAvailable } from '@google/zero-cli-core';
+import { isBinaryAvailable } from '@allhands/zero-cli-core';
 import {
   WhisperModelManager,
   type WhisperModelProgress,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { CliSpinner } from './CliSpinner.js';
 import { WarningMessage } from './messages/WarningMessage.js';
 

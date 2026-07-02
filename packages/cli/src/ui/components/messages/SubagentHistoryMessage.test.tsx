@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { renderWithProviders } from '../../../test-utils/render.js';
 import { SubagentHistoryMessage } from './SubagentHistoryMessage.js';
 import type { HistoryItemSubagent } from '../../types.js';
-import { SubagentState } from '@google/zero-cli-core';
+import { SubagentState } from '@allhands/zero-cli-core';
 
 describe('SubagentHistoryMessage', () => {
   const mockItem: HistoryItemSubagent = {

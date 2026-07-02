@@ -20,7 +20,7 @@ import type {
   ExtensionsStoppingEvent,
   ToolCallConfirmationDetails,
   AgentDefinition,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   GitService,
   Logger,
@@ -35,7 +35,7 @@ import {
   removeMCPStatusChangeListener,
   MCPDiscoveryState,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useSessionStats } from '../contexts/SessionContext.js';
 import type {
   Message,

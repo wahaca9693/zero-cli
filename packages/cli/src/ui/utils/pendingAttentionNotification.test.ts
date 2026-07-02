@@ -5,7 +5,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 import { getPendingAttentionNotification } from './pendingAttentionNotification.js';
 
 describe('getPendingAttentionNotification', () => {

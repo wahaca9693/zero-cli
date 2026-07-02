@@ -8,7 +8,7 @@ import type React from 'react';
 import { Box, Text } from 'ink';
 import { useUIState } from '../../contexts/UIStateContext.js';
 import { ExtensionUpdateState } from '../../state/extensions.js';
-import { debugLogger, type ZEROCLIExtension } from '@google/zero-cli-core';
+import { debugLogger, type ZEROCLIExtension } from '@allhands/zero-cli-core';
 import { getFormattedSettingValue } from '../../../commands/extensions/utils.js';
 
 interface ExtensionsList {

@@ -8,7 +8,7 @@ import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { CommandService } from './CommandService.js';
 import { type ICommandLoader } from './types.js';
 import { CommandKind, type SlashCommand } from '../ui/commands/types.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 const createMockCommand = (name: string, kind: CommandKind): SlashCommand => ({
   name,

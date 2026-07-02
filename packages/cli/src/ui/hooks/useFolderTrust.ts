@@ -20,7 +20,7 @@ import {
   isHeadlessMode,
   FolderTrustDiscoveryService,
   type FolderDiscoveryResults,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { runExitCleanup } from '../../utils/cleanup.js';
 
 export const useFolderTrust = (

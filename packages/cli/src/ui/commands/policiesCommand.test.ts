@@ -13,7 +13,7 @@ import {
   type Config,
   PolicyDecision,
   ApprovalMode,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 describe('policiesCommand', () => {
   let mockContext: ReturnType<typeof createMockCommandContext>;

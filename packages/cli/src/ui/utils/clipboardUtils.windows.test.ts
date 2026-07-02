@@ -10,9 +10,9 @@ import { saveClipboardImage } from './clipboardUtils.js';
 
 // Mock dependencies
 vi.mock('node:fs/promises');
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     spawnAsync: vi.fn(),
@@ -45,7 +45,7 @@ describe('saveClipboardImage Windows Path Escaping', () => {
   });
 
   it('should escape single quotes in path for PowerShell script', async () => {
-    const { spawnAsync } = await import('@google/zero-cli-core');
+    const { spawnAsync } = await import('@allhands/zero-cli-core');
     vi.mocked(spawnAsync).mockResolvedValue({
       stdout: 'success',
       stderr: '',

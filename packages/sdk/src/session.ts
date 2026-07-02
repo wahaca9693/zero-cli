@@ -22,7 +22,7 @@ import {
   ActivateSkillTool,
   type ResumedSessionData,
   PolicyDecision,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import { type Tool, SdkTool } from './tool.js';
 import { SdkAgentFilesystem } from './fs.js';

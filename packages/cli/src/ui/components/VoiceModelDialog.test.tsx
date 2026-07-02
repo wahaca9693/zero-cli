@@ -12,8 +12,8 @@ import { act } from 'react';
 import { waitFor } from '../../test-utils/async.js';
 import { SettingScope } from '../../config/settings.js';
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     isBinaryAvailable: vi.fn().mockReturnValue(true),

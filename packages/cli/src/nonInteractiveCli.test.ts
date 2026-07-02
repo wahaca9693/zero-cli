@@ -12,7 +12,7 @@ import type {
   AnyDeclarativeTool,
   AnyToolInvocation,
   UserFeedbackPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   ToolErrorType,
   ZEROEventType,
@@ -22,7 +22,7 @@ import {
   CoreEvent,
   CoreToolCallStatus,
   JsonStreamEventType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Part } from '@google/genai';
 import { runNonInteractive } from './nonInteractiveCli.js';
 import {
@@ -56,9 +56,9 @@ const mockCoreEvents = vi.hoisted(() => ({
 
 const mockSchedulerSchedule = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
 
   class MockChatRecordingService {
     initialize = vi.fn();
@@ -1664,9 +1664,7 @@ describe('runNonInteractive', () => {
   it.each([
     {
       name: 'loop detected',
-      events: [
-        { type: ZEROEventType.LoopDetected },
-      ] as ServerZEROStreamEvent[],
+      events: [{ type: ZEROEventType.LoopDetected }] as ServerZEROStreamEvent[],
       input: 'Loop test',
       promptId: 'prompt-id-loop',
     },
@@ -1721,9 +1719,7 @@ describe('runNonInteractive', () => {
   it.each([
     {
       name: 'loop detected',
-      events: [
-        { type: ZEROEventType.LoopDetected },
-      ] as ServerZEROStreamEvent[],
+      events: [{ type: ZEROEventType.LoopDetected }] as ServerZEROStreamEvent[],
       expectedWarning: 'Loop detected, stopping execution',
     },
     {
@@ -1821,12 +1817,10 @@ describe('runNonInteractive', () => {
     // @ts-expect-error - Mocking internal structure
     mockZEROClient.getChat = vi.fn().mockReturnValue(mockChat);
     // @ts-expect-error - Mocking internal structure
-    mockZEROClient.getCurrentSequenceModel = vi
-      .fn()
-      .mockReturnValue('model-1');
+    mockZEROClient.getCurrentSequenceModel = vi.fn().mockReturnValue('model-1');
 
     // Mock debugLogger.error
-    const { debugLogger } = await import('@google/zero-cli-core');
+    const { debugLogger } = await import('@allhands/zero-cli-core');
     const debugLoggerErrorSpy = vi
       .spyOn(debugLogger, 'error')
       .mockImplementation(() => {});

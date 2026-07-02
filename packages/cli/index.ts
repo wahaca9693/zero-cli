@@ -53,8 +53,7 @@ async function getMemoryNodeArgs(): Promise<string[]> {
     const { readFileSync } = await import('node:fs');
     const { join } = await import('node:path');
     // Respect ZERO_CLI_HOME environment variable, falling back to os.homedir()
-    const baseDir =
-      process.env['ZERO_CLI_HOME'] || join(os.homedir(), '.zero');
+    const baseDir = process.env['ZERO_CLI_HOME'] || join(os.homedir(), '.zero');
     const settingsPath = join(baseDir, 'settings.json');
     const rawSettings = readFileSync(settingsPath, 'utf8');
     const settings = JSON.parse(rawSettings);
@@ -149,7 +148,7 @@ async function run() {
     // Now we can safely import everything.
     const { main } = await import('./src/zero.js');
     const { FatalError, writeToStderr } = await import(
-      '@google/zero-cli-core'
+      '@allhands/zero-cli-core'
     );
     const { runExitCleanup } = await import('./src/utils/cleanup.js');
 

@@ -12,7 +12,7 @@ import {
   escapeShellArg,
   isWindows,
   type ShellType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 interface SessionSummaryDisplayProps {
   duration: string;

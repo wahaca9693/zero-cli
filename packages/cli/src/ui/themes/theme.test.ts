@@ -13,7 +13,7 @@ import {
   type Theme,
 } from './theme.js';
 import { themeManager } from './theme-manager.js';
-import type { CustomTheme } from '@google/zero-cli-core';
+import type { CustomTheme } from '@allhands/zero-cli-core';
 
 describe('createCustomTheme', () => {
   const baseTheme: CustomTheme = {

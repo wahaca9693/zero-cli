@@ -56,7 +56,7 @@ import {
   coreEvents,
   debugLogger,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useVoiceMode } from '../hooks/useVoiceMode.js';
 import {
   parseInputForHighlighting,

@@ -10,7 +10,7 @@ import {
   listMemoryFiles,
   refreshMemory,
   showMemory,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { MessageType } from '../types.js';
 import {
   CommandKind,

@@ -12,8 +12,8 @@ import {
   isTelemetrySdkInitialized,
   ExitCodes,
   resetBrowserSession,
-} from '@google/zero-cli-core';
-import type { Config } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 
 const cleanupFunctions: Array<(() => void) | (() => Promise<void>)> = [];
 const syncCleanupFunctions: Array<() => void> = [];

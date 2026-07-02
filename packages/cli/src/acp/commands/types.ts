@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { AgentLoopContext, GitService } from '@google/zero-cli-core';
+import type { AgentLoopContext, GitService } from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../../config/settings.js';
 
 export interface CommandContext {

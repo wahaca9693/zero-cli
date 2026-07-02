@@ -11,10 +11,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { env } from 'node:process';
 import { setTimeout as sleep } from 'node:timers/promises';
-import {
-  PREVIEW_ZERO_FLASH_MODEL,
-  ZERO_DIR,
-} from '@google/zero-cli-core';
+import { PREVIEW_ZERO_FLASH_MODEL, ZERO_DIR } from '@allhands/zero-cli-core';
 export { ZERO_DIR };
 import * as pty from '@lydell/node-pty';
 import stripAnsi from 'strip-ansi';
@@ -486,8 +483,7 @@ export class TestRig {
               },
             }
           : {}),
-        sandbox:
-          env['ZERO_SANDBOX'] !== 'false' ? env['ZERO_SANDBOX'] : false,
+        sandbox: env['ZERO_SANDBOX'] !== 'false' ? env['ZERO_SANDBOX'] : false,
         // Don't show the IDE connection dialog when running from VsCode
         ide: { enabled: false, hasSeenNudge: true },
       },

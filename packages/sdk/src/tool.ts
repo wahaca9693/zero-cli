@@ -14,7 +14,7 @@ import {
   type ExecuteOptions,
   Kind,
   type MessageBus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { SessionContext } from './types.js';
 
 export { z };
@@ -210,7 +210,7 @@ export class SdkTool<T extends z.ZodTypeAny> extends BaseDeclarativeTool<
  *
  * @example
  * ```typescript
- * import { z, tool } from '@google/zero-cli-sdk';
+ * import { z, tool } from '@allhands/zero-cli-sdk';
  *
  * const myTool = tool(
  *   {

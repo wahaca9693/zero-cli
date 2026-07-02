@@ -21,7 +21,7 @@ import {
   CoreToolCallStatus,
   checkExhaustive,
   type SubagentActivityItem,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { PartListUnion } from '@google/genai';
 import { type ReactNode } from 'react';
 

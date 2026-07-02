@@ -14,7 +14,7 @@ import { formatDuration } from '../utils/formatters.js';
 import {
   UserAccountManager,
   getG1CreditBalance,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type CommandContext,
   type SlashCommand,

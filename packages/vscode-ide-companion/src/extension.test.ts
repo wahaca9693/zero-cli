@@ -10,11 +10,11 @@ import { activate } from './extension.js';
 import {
   IDE_DEFINITIONS,
   detectIdeFromEnv,
-} from '@google/zero-cli-core/src/ide/detect-ide.js';
+} from '@allhands/zero-cli-core/src/ide/detect-ide.js';
 
-vi.mock('@google/zero-cli-core/src/ide/detect-ide.js', async () => {
+vi.mock('@allhands/zero-cli-core/src/ide/detect-ide.js', async () => {
   const actual = await vi.importActual(
-    '@google/zero-cli-core/src/ide/detect-ide.js',
+    '@allhands/zero-cli-core/src/ide/detect-ide.js',
   );
   return {
     ...actual,

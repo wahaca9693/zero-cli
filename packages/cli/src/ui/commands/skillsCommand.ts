@@ -17,7 +17,7 @@ import {
 } from '../types.js';
 import { disableSkill, enableSkill } from '../../utils/skillSettings.js';
 
-import { getAdminErrorMessage, getErrorMessage } from '@google/zero-cli-core';
+import { getAdminErrorMessage, getErrorMessage } from '@allhands/zero-cli-core';
 import {
   linkSkill,
   renderSkillActionFeedback,

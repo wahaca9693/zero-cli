@@ -14,7 +14,7 @@ import {
   type CommandContext,
 } from './types.js';
 import type { ReactElement } from 'react';
-import { coreEvents } from '@google/zero-cli-core';
+import { coreEvents } from '@allhands/zero-cli-core';
 
 // Mock dependencies
 const mockRewindTo = vi.fn();
@@ -32,9 +32,9 @@ const mockSetInput = vi.fn();
 const mockRevertFileChanges = vi.fn();
 const mockGetProjectRoot = vi.fn().mockReturnValue('/mock/root');
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     coreEvents: {

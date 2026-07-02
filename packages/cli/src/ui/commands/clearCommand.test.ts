@@ -10,8 +10,8 @@ import { type CommandContext } from './types.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
 
 // Mock the telemetry service
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     uiTelemetryService: {
@@ -21,7 +21,7 @@ vi.mock('@google/zero-cli-core', async () => {
   };
 });
 
-import { uiTelemetryService, type ZEROClient } from '@google/zero-cli-core';
+import { uiTelemetryService, type ZEROClient } from '@allhands/zero-cli-core';
 
 describe('clearCommand', () => {
   let mockContext: CommandContext;

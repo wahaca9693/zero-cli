@@ -10,7 +10,7 @@ import {
   Storage,
   loadSkillsFromDir,
   type SkillDefinition,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { cloneFromGit } from '../config/extensions/github.js';
 import extract from 'extract-zip';
 import * as fs from 'node:fs/promises';
@@ -112,9 +112,7 @@ export async function installSkill(
 
   try {
     if (isGitUrl) {
-      tempDirToClean = await fs.mkdtemp(
-        path.join(os.tmpdir(), 'zero-skill-'),
-      );
+      tempDirToClean = await fs.mkdtemp(path.join(os.tmpdir(), 'zero-skill-'));
       sourcePath = tempDirToClean;
 
       onLog(`Cloning skill from ${source}...`);
@@ -127,9 +125,7 @@ export async function installSkill(
         tempDirToClean,
       );
     } else if (isSkillFile) {
-      tempDirToClean = await fs.mkdtemp(
-        path.join(os.tmpdir(), 'zero-skill-'),
-      );
+      tempDirToClean = await fs.mkdtemp(path.join(os.tmpdir(), 'zero-skill-'));
       sourcePath = tempDirToClean;
 
       onLog(`Extracting skill from ${source}...`);

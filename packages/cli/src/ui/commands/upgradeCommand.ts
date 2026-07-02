@@ -9,7 +9,7 @@ import {
   openBrowserSecurely,
   shouldLaunchBrowser,
   UPGRADE_URL_PAGE,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { isUltraTier } from '../../utils/tierUtils.js';
 import { CommandKind, type SlashCommand } from './types.js';
 

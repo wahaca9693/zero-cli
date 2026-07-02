@@ -24,7 +24,7 @@ import {
   exitAlternateScreen,
   enableLineWrapping,
   disableLineWrapping,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   cleanupTerminalOnExit,
   terminalCapabilityManager,
@@ -32,8 +32,8 @@ import {
 import { formatCommand } from '../key/keybindingUtils.js';
 import { Command } from '../key/keyBindings.js';
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     writeToStdout: vi.fn(),

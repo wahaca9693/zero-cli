@@ -25,7 +25,7 @@ import {
   type Config,
   tmpdir,
   NoopSandboxManager,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { createTestMergedSettings, SettingScope } from './settings.js';
 
 describe('ExtensionManager theme loading', () => {

@@ -38,7 +38,7 @@ import {
   processRestorableToolCalls,
   MessageBusType,
   type ToolCallsUpdateMessage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type ExecutionEventBus,
   type RequestContext,

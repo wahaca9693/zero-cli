@@ -14,7 +14,7 @@ import {
   enableBracketedPasteMode,
   disableBracketedPasteMode,
   disableMouseEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { parseColor } from '../themes/color-utils.js';
 
 export type TerminalBackgroundColor = string | undefined;

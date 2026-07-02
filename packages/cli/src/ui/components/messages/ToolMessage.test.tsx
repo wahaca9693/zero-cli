@@ -14,7 +14,7 @@ import {
   CoreToolCallStatus,
   Kind,
   makeFakeConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { renderWithProviders } from '../../../test-utils/render.js';
 import { createMockSettings } from '../../../test-utils/settings.js';
 import { tryParseJSON } from '../../../utils/jsonoutput.js';

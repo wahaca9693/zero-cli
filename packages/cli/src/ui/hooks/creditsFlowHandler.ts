@@ -25,7 +25,7 @@ import {
   UserAccountManager,
   recordOverageOptionSelected,
   recordCreditPurchaseClick,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { MessageType } from '../types.js';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import type {

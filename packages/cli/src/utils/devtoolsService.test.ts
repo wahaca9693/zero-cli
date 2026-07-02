@@ -5,7 +5,7 @@
  */
 
 import { vi, describe, it, expect, beforeEach } from 'vitest';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 
 // --- Mocks (hoisted) ---
 
@@ -75,7 +75,7 @@ const mockOpenBrowserSecurely = vi.hoisted(() =>
   vi.fn(() => Promise.resolve()),
 );
 
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   debugLogger: {
     log: vi.fn(),
     debug: vi.fn(),
@@ -90,7 +90,7 @@ vi.mock('ws', () => ({
   default: MockWebSocket,
 }));
 
-vi.mock('@google/zero-cli-devtools', () => ({
+vi.mock('@allhands/zero-cli-devtools', () => ({
   DevTools: {
     getInstance: () => mockDevToolsInstance,
   },

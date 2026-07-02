@@ -12,7 +12,7 @@ import {
   ApprovalMode,
   makeFakeConfig,
   type SerializableConfirmationDetails,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type UIState } from './contexts/UIStateContext.js';
 import { act } from 'react';
 import { StreamingState } from './types.js';

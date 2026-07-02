@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { SandboxConfig } from '@google/zero-cli-core';
+import type { SandboxConfig } from '@allhands/zero-cli-core';
 
 export function createMockSandboxConfig(
   overrides?: Partial<SandboxConfig>,

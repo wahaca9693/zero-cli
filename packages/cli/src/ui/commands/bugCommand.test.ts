@@ -9,7 +9,7 @@ import open from 'open';
 import path from 'node:path';
 import { bugCommand } from './bugCommand.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
-import { getVersion, type Config } from '@google/zero-cli-core';
+import { getVersion, type Config } from '@allhands/zero-cli-core';
 import { GIT_COMMIT_INFO } from '../../generated/git-commit.js';
 import { formatBytes } from '../utils/formatters.js';
 import { MessageType } from '../types.js';
@@ -49,9 +49,9 @@ vi.mock('../utils/historyExportUtils.js', async (importOriginal) => {
 });
 import { exportHistoryToFile } from '../utils/historyExportUtils.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     IdeClient: {

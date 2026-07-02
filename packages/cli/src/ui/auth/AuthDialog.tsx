@@ -18,7 +18,7 @@ import {
   AuthType,
   clearCachedCredentialFile,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useKeypress } from '../hooks/useKeypress.js';
 import { AuthState } from '../types.js';
 import { validateAuthMethodWithSettings } from './useAuth.js';

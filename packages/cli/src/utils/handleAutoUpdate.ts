@@ -15,7 +15,7 @@ import {
   debugLogger,
   getChannelFromVersion,
   RELEASE_CHANNEL_STABILITY,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 let _updateInProgress = false;
 

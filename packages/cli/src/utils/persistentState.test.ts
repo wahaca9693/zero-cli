@@ -7,11 +7,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { Storage, debugLogger } from '@google/zero-cli-core';
+import { Storage, debugLogger } from '@allhands/zero-cli-core';
 import { PersistentState } from './persistentState.js';
 
 vi.mock('node:fs');
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   Storage: {
     getGlobalZERODir: vi.fn(),
   },

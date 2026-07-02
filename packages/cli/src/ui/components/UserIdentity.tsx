@@ -12,7 +12,7 @@ import {
   type Config,
   UserAccountManager,
   AuthType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { isUltraTier } from '../../utils/tierUtils.js';
 
 interface UserIdentityProps {

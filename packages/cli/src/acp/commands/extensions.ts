@@ -8,7 +8,7 @@ import {
   listExtensions,
   type Config,
   getErrorMessage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { SettingScope } from '../../config/settings.js';
 import {
   ExtensionManager,

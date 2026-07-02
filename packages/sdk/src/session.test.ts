@@ -39,10 +39,10 @@ const mockConfig = {
 // Mock scheduleAgentTools at module level so tests can override it
 const mockScheduleAgentTools = vi.fn().mockResolvedValue([]);
 
-// Mock @google/zero-cli-core to avoid heavy filesystem/auth/telemetry setup
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+// Mock @allhands/zero-cli-core to avoid heavy filesystem/auth/telemetry setup
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     Config: vi.fn().mockImplementation(() => mockConfig),
@@ -115,11 +115,7 @@ describe('ZEROCliSession constructor', () => {
 
 describe('ZEROCliSession id getter', () => {
   it('returns the sessionId passed to the constructor', () => {
-    const session = new ZEROCliSession(
-      baseOptions,
-      'my-session-id',
-      mockAgent,
-    );
+    const session = new ZEROCliSession(baseOptions, 'my-session-id', mockAgent);
     expect(session.id).toBe('my-session-id');
   });
 
@@ -225,7 +221,7 @@ describe.skip('ZEROCliSession sendStream()', () => {
   });
 
   it('executes tool call loop and sends function response back to model', async () => {
-    const { ZEROEventType } = await import('@google/zero-cli-core');
+    const { ZEROEventType } = await import('@allhands/zero-cli-core');
 
     // First call: yield a ToolCallRequest, then end
     // Second call: empty stream (model is done after tool result)
@@ -291,11 +287,7 @@ describe.skip('ZEROCliSession sendStream()', () => {
       instructions: dynamicInstructions,
     };
 
-    const session = new ZEROCliSession(
-      options,
-      'session-stream-5',
-      mockAgent,
-    );
+    const session = new ZEROCliSession(options, 'session-stream-5', mockAgent);
     for await (const _event of session.sendStream('Hello')) {
       // consume stream
     }

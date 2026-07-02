@@ -7,7 +7,7 @@
 import {
   CoreToolCallStatus,
   belongsInConfirmationQueue,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type HistoryItemWithoutId,
   type IndividualToolCallDisplay,

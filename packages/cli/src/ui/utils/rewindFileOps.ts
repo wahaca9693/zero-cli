@@ -7,7 +7,7 @@
 import type {
   ConversationRecord,
   MessageRecord,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import fs from 'node:fs/promises';
 import * as Diff from 'diff';
 import {
@@ -15,7 +15,7 @@ import {
   debugLogger,
   getFileDiffFromResultDisplay,
   computeModelAddedAndRemovedLines,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface FileChangeDetail {
   fileName: string;

@@ -10,7 +10,7 @@ import {
   getResponseText,
   LlmRole,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Content } from '@google/genai';
 import type { TextBuffer } from '../components/shared/text-buffer.js';
 import { isSlashCommand } from '../utils/commandUtils.js';

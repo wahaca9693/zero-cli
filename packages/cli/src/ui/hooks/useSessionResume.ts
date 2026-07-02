@@ -8,12 +8,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   coreEvents,
   convertSessionToClientHistory,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   HistoryTurn,
   Config,
   ResumedSessionData,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { HistoryItemWithoutId } from '../types.js';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import { convertSessionToHistoryFormats } from './useSessionBrowser.js';

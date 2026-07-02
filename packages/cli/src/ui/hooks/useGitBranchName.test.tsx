@@ -15,13 +15,13 @@ import path from 'node:path'; // For mocking fs
 import {
   spawnAsync as mockSpawnAsync,
   getAbsoluteGitDir as mockGetAbsoluteGitDir,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
-// Mock @google/zero-cli-core
-vi.mock('@google/zero-cli-core', async () => {
+// Mock @allhands/zero-cli-core
+vi.mock('@allhands/zero-cli-core', async () => {
   const original = await vi.importActual<
-    typeof import('@google/zero-cli-core')
-  >('@google/zero-cli-core');
+    typeof import('@allhands/zero-cli-core')
+  >('@allhands/zero-cli-core');
   return {
     ...original,
     spawnAsync: vi.fn(),

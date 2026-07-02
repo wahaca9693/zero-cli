@@ -18,7 +18,7 @@ import {
   setDeferredCommand,
   type DeferredCommand,
 } from './deferred.js';
-import { ExitCodes } from '@google/zero-cli-core';
+import { ExitCodes } from '@allhands/zero-cli-core';
 import type { ArgumentsCamelCase, CommandModule } from 'yargs';
 import { createMockSettings } from './test-utils/settings.js';
 
@@ -29,8 +29,8 @@ const { mockRunExitCleanup, mockCoreEvents } = vi.hoisted(() => ({
   },
 }));
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     coreEvents: mockCoreEvents,

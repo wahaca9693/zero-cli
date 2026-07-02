@@ -10,11 +10,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { SettingScope, type LoadedSettings } from '../../config/settings.js';
 import { act } from 'react';
 import { waitFor } from '../../test-utils/async.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     isEditorAvailable: () => true, // Mock to behave predictably in CI
@@ -179,7 +179,7 @@ describe('EditorSettingsDialog', () => {
   it('emits error feedback only once when preferredEditor is invalid', async () => {
     const mockEmitFeedback = vi.fn();
     vi.spyOn(
-      await import('@google/zero-cli-core').then((m) => m.coreEvents),
+      await import('@allhands/zero-cli-core').then((m) => m.coreEvents),
       'emitFeedback',
     ).mockImplementation(mockEmitFeedback);
 

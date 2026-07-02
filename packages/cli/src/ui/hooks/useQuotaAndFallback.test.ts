@@ -36,7 +36,7 @@ import {
   shouldShowEmptyWalletMenu,
   logBillingEvent,
   G1_CREDIT_TYPE,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useQuotaAndFallback } from './useQuotaAndFallback.js';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import { MessageType } from '../types.js';
@@ -44,9 +44,9 @@ import { MessageType } from '../types.js';
 // Use a type alias for SpyInstance as it's not directly exported
 type SpyInstance = ReturnType<typeof vi.spyOn>;
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     getG1CreditBalance: vi.fn(),
@@ -709,11 +709,7 @@ Your admin might have disabled the access. Contact them to enable the Preview Re
         1000 * 60 * 5,
       );
 
-      const intentPromise = handler(
-        PREVIEW_ZERO_MODEL,
-        'zero-flash',
-        error,
-      );
+      const intentPromise = handler(PREVIEW_ZERO_MODEL, 'zero-flash', error);
 
       // Since credits didn't help, the ProQuotaDialog should be shown
       await waitFor(() => {
@@ -997,9 +993,7 @@ Your admin might have disabled the access. Contact them to enable the Preview Re
       expect(mockHistoryManager.addItem).toHaveBeenCalledTimes(1);
       const lastCall = (mockHistoryManager.addItem as Mock).mock.calls[0][0];
       expect(lastCall.type).toBe(MessageType.INFO);
-      expect(lastCall.text).toContain(
-        'Switched to fallback model zero-flash',
-      );
+      expect(lastCall.text).toContain('Switched to fallback model zero-flash');
     });
 
     it('should show a special message when falling back from the preview model', async () => {

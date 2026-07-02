@@ -21,7 +21,7 @@ import {
   type AgentProtocol,
   type Logger,
   type Part,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   HistoryItemWithoutId,
   LoopDetectionConfirmationRequest,

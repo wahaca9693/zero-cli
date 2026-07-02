@@ -8,7 +8,7 @@ import type {
   MCPServerConfig,
   ExtensionInstallMetadata,
   CustomTheme,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { INSTALL_METADATA_FILENAME } from './extensions/variables.js';

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { debugLogger, type Config } from '@google/zero-cli-core';
+import { debugLogger, type Config } from '@allhands/zero-cli-core';
 import WebSocket from 'ws';
 import {
   initActivityLogger,
@@ -60,7 +60,7 @@ async function startOrJoinDevTools(
   defaultHost: string,
   defaultPort: number,
 ): Promise<{ host: string; port: number }> {
-  const mod = await import('@google/zero-cli-devtools');
+  const mod = await import('@allhands/zero-cli-devtools');
   const devtools: IDevTools = mod.DevTools.getInstance();
   const url = await devtools.start();
   const actualPort = devtools.getPort();
@@ -208,7 +208,7 @@ export async function toggleDevToolsPanel(
 
   try {
     const { openBrowserSecurely, shouldLaunchBrowser } = await import(
-      '@google/zero-cli-core'
+      '@allhands/zero-cli-core'
     );
     const url = await startDevToolsServer(config);
     if (shouldLaunchBrowser()) {

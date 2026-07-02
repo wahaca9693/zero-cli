@@ -6,7 +6,7 @@
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { performInit } from '@google/zero-cli-core';
+import { performInit } from '@allhands/zero-cli-core';
 import type {
   Command,
   CommandContext,

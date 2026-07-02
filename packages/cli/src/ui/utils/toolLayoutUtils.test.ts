@@ -14,7 +14,7 @@ import {
   TOOL_RESULT_ASB_RESERVED_LINE_COUNT,
   TOOL_RESULT_MIN_LINES_SHOWN,
 } from './toolLayoutUtils.js';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 import {
   ACTIVE_SHELL_MAX_LINES,
   COMPLETED_SHELL_MAX_LINES,

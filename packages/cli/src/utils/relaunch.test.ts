@@ -21,9 +21,9 @@ const mocks = vi.hoisted(() => ({
   writeToStderr: vi.fn(),
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     writeToStderr: mocks.writeToStderr,
@@ -250,12 +250,7 @@ describe('relaunchAppInChildProcess', () => {
       vi.stubEnv('IS_BINARY', 'true');
       // execArgv should be inherited, not duplicated in NODE_OPTIONS
       process.execArgv = ['--inspect=9229'];
-      process.argv = [
-        '/usr/bin/zero',
-        '/usr/bin/zero',
-        'command',
-        '--verbose',
-      ];
+      process.argv = ['/usr/bin/zero', '/usr/bin/zero', 'command', '--verbose'];
 
       const additionalNodeArgs = ['--max-old-space-size=8192'];
       const additionalScriptArgs: string[] = [];

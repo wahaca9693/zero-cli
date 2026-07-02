@@ -17,7 +17,7 @@ import {
   isGrepResult,
   isListResult,
   isReadManyFilesResult,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type IndividualToolCallDisplay,
   type ToolResultDisplay,

@@ -9,7 +9,7 @@ import {
   CoreEvent,
   type SlashCommandConflictsPayload,
   type SlashCommandConflict,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { CommandKind } from '../ui/commands/types.js';
 
 /**

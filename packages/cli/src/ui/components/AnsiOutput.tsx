@@ -6,7 +6,7 @@
 
 import type React from 'react';
 import { Box, Text } from 'ink';
-import type { AnsiLine, AnsiOutput, AnsiToken } from '@google/zero-cli-core';
+import type { AnsiLine, AnsiOutput, AnsiToken } from '@allhands/zero-cli-core';
 
 const DEFAULT_HEIGHT = 24;
 

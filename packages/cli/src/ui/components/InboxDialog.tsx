@@ -43,7 +43,7 @@ import {
   applyInboxMemoryPatch,
   dismissInboxMemoryPatch,
   isProjectSkillPatchTarget,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 type Phase =
   | 'list'

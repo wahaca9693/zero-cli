@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import chalk from 'chalk';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 import { exitCli } from '../utils.js';
 import {
   DEFAULT_PORT,
@@ -88,9 +88,7 @@ export const startCommand: CommandModule = {
     const binaryPath = getBinaryPath();
     if (!binaryPath || !isBinaryInstalled(binaryPath)) {
       debugLogger.error(
-        chalk.red(
-          'LiteRT-LM binary not found. Run "zero gemma setup" first.',
-        ),
+        chalk.red('LiteRT-LM binary not found. Run "zero gemma setup" first.'),
       );
       await exitCli(1);
       return;

@@ -12,16 +12,16 @@ import {
   IDEConnectionStatus,
   ideContextStore,
   type IDEConnectionState,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useIdeTrustListener } from './useIdeTrustListener.js';
 import * as trustedFolders from '../../config/trustedFolders.js';
 import { useSettings } from '../contexts/SettingsContext.js';
 import type { LoadedSettings } from '../../config/settings.js';
 
 // Mock dependencies
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const ideClientInstance = {
     addTrustChangeListener: vi.fn(),
     removeTrustChangeListener: vi.fn(),

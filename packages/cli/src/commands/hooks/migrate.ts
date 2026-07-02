@@ -7,7 +7,7 @@
 import type { CommandModule } from 'yargs';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { debugLogger, getErrorMessage } from '@google/zero-cli-core';
+import { debugLogger, getErrorMessage } from '@allhands/zero-cli-core';
 import { loadSettings, SettingScope } from '../../config/settings.js';
 import { exitCli } from '../utils.js';
 import stripJsonComments from 'strip-json-comments';

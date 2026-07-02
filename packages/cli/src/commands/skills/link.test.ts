@@ -22,7 +22,7 @@ const { debugLogger } = await vi.hoisted(async () => {
   return createMockDebugLogger({ stripAnsi: false });
 });
 
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   debugLogger,
   getErrorMessage: vi.fn((e: unknown) =>
     e instanceof Error ? e.message : String(e),

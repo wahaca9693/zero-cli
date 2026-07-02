@@ -23,7 +23,7 @@ import {
   type SlashCommandActionReturn,
 } from './types.js';
 import { getUrlOpenCommand } from '../../ui/utils/commandUtils.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 export const GITHUB_WORKFLOW_PATHS = [
   'zero-dispatch/zero-dispatch.yml',

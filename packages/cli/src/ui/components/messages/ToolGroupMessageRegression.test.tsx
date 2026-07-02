@@ -14,7 +14,7 @@ import {
   WRITE_FILE_DISPLAY_NAME,
   Kind,
   SubagentState,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import os from 'node:os';
 import { createMockSettings } from '../../../test-utils/settings.js';
 import type { IndividualToolCallDisplay } from '../../types.js';

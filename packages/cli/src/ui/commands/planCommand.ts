@@ -16,7 +16,7 @@ import {
   processSingleFileContent,
   partToString,
   readFileWithEncoding,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { MessageType } from '../types.js';
 import * as path from 'node:path';
 import { copyToClipboard } from '../utils/commandUtils.js';

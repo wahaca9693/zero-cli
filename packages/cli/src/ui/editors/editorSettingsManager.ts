@@ -9,7 +9,7 @@ import {
   hasValidEditorCommand,
   type EditorType,
   EDITOR_DISPLAY_NAMES,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface EditorDisplay {
   name: string;

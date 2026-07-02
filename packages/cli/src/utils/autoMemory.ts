@@ -8,7 +8,7 @@ import {
   debugLogger,
   startMemoryService,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export function startAutoMemoryIfEnabled(config: Config): void {
   if (!config.isAutoMemoryEnabled()) {

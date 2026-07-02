@@ -10,7 +10,7 @@ import {
   performInit,
   type CommandActionReturn,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { CoderAgentExecutor } from '../agent/executor.js';
@@ -20,9 +20,9 @@ import { createMockConfig } from '../utils/testing_utils.js';
 import type { CommandContext } from './types.js';
 import { logger } from '../utils/logger.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     performInit: vi.fn(),

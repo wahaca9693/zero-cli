@@ -10,7 +10,7 @@ import type {
   Config,
   AgentDefinition,
   MessageBus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   FileDiscoveryService,
   GlobTool,
@@ -19,7 +19,7 @@ import {
   ToolRegistry,
   COMMON_IGNORE_PATTERNS,
   ApprovalMode,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as os from 'node:os';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import * as fsPromises from 'node:fs/promises';

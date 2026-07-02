@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from 'react';
 import {
   getDisplayString,
   type RetryAttemptPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 const LOW_VERBOSITY_RETRY_HINT_ATTEMPT_THRESHOLD = 2;
 

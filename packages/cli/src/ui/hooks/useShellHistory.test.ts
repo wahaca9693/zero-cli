@@ -12,7 +12,7 @@ import { useShellHistory } from './useShellHistory.js';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import * as crypto from 'node:crypto';
-import { ZERO_DIR } from '@google/zero-cli-core';
+import { ZERO_DIR } from '@allhands/zero-cli-core';
 
 vi.mock('node:fs/promises', () => ({
   readFile: vi.fn(),
@@ -35,9 +35,9 @@ vi.mock('node:fs', async (importOriginal) => {
     mkdirSync: vi.fn(),
   };
 });
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const path = await import('node:path');
   class Storage {
     static getGlobalSettingsPath(): string {

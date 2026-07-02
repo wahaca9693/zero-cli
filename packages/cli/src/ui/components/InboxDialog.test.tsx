@@ -11,7 +11,7 @@ import type {
   InboxSkill,
   InboxPatch,
   InboxMemoryPatch,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   dismissInboxSkill,
   dismissInboxMemoryPatch,
@@ -23,7 +23,7 @@ import {
   dismissInboxPatch,
   applyInboxMemoryPatch,
   isProjectSkillPatchTarget,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { waitFor } from '../../test-utils/async.js';
 import { renderWithProviders } from '../../test-utils/render.js';
 import { createMockSettings } from '../../test-utils/settings.js';
@@ -33,9 +33,9 @@ const altBufferSettings = createMockSettings({
   ui: { useAlternateBuffer: true },
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
 
   return {
     ...original,

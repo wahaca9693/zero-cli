@@ -10,7 +10,7 @@ import {
   hasRedirection,
   type CoreToolCallStatus,
   type ToolCallRequestInfo,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface MinimalTrackedToolCall {
   status: CoreToolCallStatus;

@@ -15,12 +15,12 @@ import {
   disableWorkspacePolicies,
   setDisableWorkspacePolicies,
 } from './policy.js';
-import { writeToStderr } from '@google/zero-cli-core';
+import { writeToStderr } from '@allhands/zero-cli-core';
 
 // Mock debugLogger to avoid noise in test output
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     debugLogger: {
@@ -224,10 +224,7 @@ describe('resolveWorkspacePolicyState', () => {
     fs.writeFileSync(path.join(policiesDir, 'policy.toml'), 'rules = []');
 
     // Create a symlink to the home directory
-    const symlinkDir = path.join(
-      os.tmpdir(),
-      `zero-cli-symlink-${Date.now()}`,
-    );
+    const symlinkDir = path.join(os.tmpdir(), `zero-cli-symlink-${Date.now()}`);
     fs.symlinkSync(tempDir, symlinkDir, 'dir');
 
     try {

@@ -46,7 +46,7 @@ import type { ResourceRegistry } from '../resources/resource-registry.js';
 import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
-import { cleanupTmpDir } from '@google/zero-cli-test-utils';
+import { cleanupTmpDir } from '@allhands/zero-cli-test-utils';
 import { coreEvents } from '../utils/events.js';
 import type { EnvironmentSanitizationConfig } from '../services/environmentSanitization.js';
 
@@ -110,9 +110,7 @@ describe('mcp-client', () => {
     };
     // create a tmp dir for this test
     // Create a unique temporary directory for the workspace to avoid conflicts
-    testWorkspace = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-agent-test-'),
-    );
+    testWorkspace = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-agent-test-'));
     workspaceContext = new WorkspaceContext(testWorkspace);
   });
 
@@ -2809,9 +2807,7 @@ describe('connectToMcpServer with OAuth', () => {
     } as unknown as ClientLib.Client;
     vi.mocked(ClientLib.Client).mockImplementation(() => mockedClient);
 
-    testWorkspace = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-agent-test-'),
-    );
+    testWorkspace = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-agent-test-'));
     workspaceContext = new WorkspaceContext(testWorkspace);
 
     vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -3030,9 +3026,7 @@ describe('connectToMcpServer - HTTP→SSE fallback', () => {
     } as unknown as ClientLib.Client;
     vi.mocked(ClientLib.Client).mockImplementation(() => mockedClient);
 
-    testWorkspace = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-agent-test-'),
-    );
+    testWorkspace = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-agent-test-'));
     workspaceContext = new WorkspaceContext(testWorkspace);
 
     vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -3165,9 +3159,7 @@ describe('connectToMcpServer - OAuth with transport fallback', () => {
     } as unknown as ClientLib.Client;
     vi.mocked(ClientLib.Client).mockImplementation(() => mockedClient);
 
-    testWorkspace = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-agent-test-'),
-    );
+    testWorkspace = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-agent-test-'));
     workspaceContext = new WorkspaceContext(testWorkspace);
 
     vi.spyOn(console, 'log').mockImplementation(() => {});

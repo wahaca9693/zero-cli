@@ -10,7 +10,7 @@ import {
   debugLogger,
   getErrorMessage,
   type ExtensionInstallMetadata,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import {
   INSTALL_WARNING_MESSAGE,

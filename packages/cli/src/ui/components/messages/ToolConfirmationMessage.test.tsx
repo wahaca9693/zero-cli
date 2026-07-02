@@ -11,7 +11,7 @@ import {
   type ToolCallConfirmationDetails,
   type Config,
   ToolConfirmationOutcome,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { renderWithProviders } from '../../../test-utils/render.js';
 import { createMockSettings } from '../../../test-utils/settings.js';
 import { useToolActions } from '../../contexts/ToolActionsContext.js';
@@ -74,8 +74,7 @@ describe('ToolConfirmationMessage', () => {
     const confirmationDetails: SerializableConfirmationDetails = {
       type: 'info',
       title: 'Confirm Web Fetch',
-      prompt:
-        'fetch https://github.com/google/zero-react/blob/main/README.md',
+      prompt: 'fetch https://github.com/google/zero-react/blob/main/README.md',
       urls: [
         'https://raw.githubusercontent.com/google/zero-react/main/README.md',
       ],

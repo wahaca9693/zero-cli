@@ -13,18 +13,18 @@ import {
   afterEach,
   type Mock,
 } from 'vitest';
-import { coreEvents, getErrorMessage } from '@google/zero-cli-core';
+import { coreEvents, getErrorMessage } from '@allhands/zero-cli-core';
 import { type Argv } from 'yargs';
 import { handleLink, linkCommand } from './link.js';
 import { ExtensionManager } from '../../config/extension-manager.js';
 import { loadSettings, type LoadedSettings } from '../../config/settings.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const { mockCoreDebugLogger } = await import(
     '../../test-utils/mockDebugLogger.js'
   );
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const mocked = mockCoreDebugLogger(actual, { stripAnsi: true });
   return { ...mocked, getErrorMessage: vi.fn() };
 });

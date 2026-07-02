@@ -17,7 +17,7 @@ import { loadTrustedFolders, TrustLevel } from '../../config/trustedFolders.js';
 import { expandHomeDir } from '../utils/directoryUtils.js';
 import * as path from 'node:path';
 import { MessageType, type HistoryItem } from '../types.js';
-import { type Config } from '@google/zero-cli-core';
+import { type Config } from '@allhands/zero-cli-core';
 
 export enum MultiFolderTrustChoice {
   YES,
@@ -164,9 +164,9 @@ export const MultiFolderTrustDialog: React.FC<MultiFolderTrustDialogProps> = ({
             {folders.map((f) => `- ${f}`).join('\n')}
           </Text>
           <Text color={theme.text.primary}>
-            Trusting a folder allows ZERO to read and perform auto-edits when
-            in auto-approval mode. This is a security feature to prevent
-            accidental execution in untrusted directories.
+            Trusting a folder allows ZERO to read and perform auto-edits when in
+            auto-approval mode. This is a security feature to prevent accidental
+            execution in untrusted directories.
           </Text>
         </Box>
 

@@ -13,7 +13,7 @@ import {
 import {
   writeToStderr,
   type AdminControlsSettings,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export async function relaunchOnExitCode(runner: () => Promise<number>) {
   while (true) {

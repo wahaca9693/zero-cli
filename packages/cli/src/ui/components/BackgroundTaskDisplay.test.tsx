@@ -8,7 +8,7 @@ import { render } from '../../test-utils/render.js';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { BackgroundTaskDisplay } from './BackgroundTaskDisplay.js';
 import { type BackgroundTask } from '../hooks/useExecutionLifecycle.js';
-import { ShellExecutionService } from '@google/zero-cli-core';
+import { ShellExecutionService } from '@allhands/zero-cli-core';
 import { act } from 'react';
 import { type Key, type KeypressHandler } from '../contexts/KeypressContext.js';
 import { ScrollProvider } from '../contexts/ScrollProvider.js';
@@ -27,9 +27,9 @@ vi.mock('../contexts/UIActionsContext.js', () => ({
   }),
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     ShellExecutionService: {

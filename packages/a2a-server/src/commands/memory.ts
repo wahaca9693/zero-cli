@@ -8,7 +8,7 @@ import {
   listMemoryFiles,
   refreshMemory,
   showMemory,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   Command,
   CommandContext,

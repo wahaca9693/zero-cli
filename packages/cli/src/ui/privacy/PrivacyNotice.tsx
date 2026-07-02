@@ -5,7 +5,7 @@
  */
 
 import { Box } from 'ink';
-import { type Config, AuthType } from '@google/zero-cli-core';
+import { type Config, AuthType } from '@allhands/zero-cli-core';
 import { ZEROPrivacyNotice } from './ZEROPrivacyNotice.js';
 import { CloudPaidPrivacyNotice } from './CloudPaidPrivacyNotice.js';
 import { CloudFreePrivacyNotice } from './CloudFreePrivacyNotice.js';

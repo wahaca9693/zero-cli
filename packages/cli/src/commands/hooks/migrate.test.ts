@@ -16,7 +16,7 @@ import {
 } from 'vitest';
 import * as fs from 'node:fs';
 import { loadSettings, SettingScope } from '../../config/settings.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 import { handleMigrateFromClaude } from './migrate.js';
 
 vi.mock('node:fs');

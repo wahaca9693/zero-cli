@@ -5,7 +5,7 @@
  */
 
 import { createContext, useContext } from 'react';
-import type { StartupWarning } from '@google/zero-cli-core';
+import type { StartupWarning } from '@allhands/zero-cli-core';
 
 export interface AppState {
   version: string;

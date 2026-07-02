@@ -6,7 +6,7 @@
 
 import * as path from 'node:path';
 import type { PartListUnion, PartUnion } from '@google/genai';
-import type { AnyToolInvocation, Config } from '@google/zero-cli-core';
+import type { AnyToolInvocation, Config } from '@allhands/zero-cli-core';
 import {
   debugLogger,
   getErrorMessage,
@@ -18,7 +18,7 @@ import {
   REFERENCE_CONTENT_END,
   CoreToolCallStatus,
   resolveAtCommandPath,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { Buffer } from 'node:buffer';
 import type {
   HistoryItemToolGroup,

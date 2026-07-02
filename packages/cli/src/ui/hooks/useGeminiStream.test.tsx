@@ -36,7 +36,7 @@ import type {
   SpanMetadata,
   CompletedToolCall,
   ToolCallRequestInfo,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   CoreToolCallStatus,
   ApprovalMode,
@@ -54,7 +54,7 @@ import {
   ZEROCliOperation,
   getPlanModeExitMessage,
   UPDATE_TOPIC_TOOL_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Part, PartListUnion } from '@google/genai';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import type {
@@ -151,7 +151,7 @@ const mockRunInDevTraceSpan = vi.hoisted(() =>
   }),
 );
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actualCoreModule = (await importOriginal()) as any;
   return {
     ...actualCoreModule,

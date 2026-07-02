@@ -10,7 +10,7 @@ import {
   ShellExecutionService,
   flatMapTextParts,
   PolicyDecision,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import type { CommandContext } from '../../ui/commands/types.js';
 import type { IPromptProcessor, PromptPipelineContent } from './types.js';

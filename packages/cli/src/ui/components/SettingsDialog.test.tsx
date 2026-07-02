@@ -29,7 +29,7 @@ import {
   createMockSettings,
   type MockSettingsFile,
 } from '../../test-utils/settings.js';
-import { makeFakeConfig } from '@google/zero-cli-core';
+import { makeFakeConfig } from '@allhands/zero-cli-core';
 import { act } from 'react';
 import { TEST_ONLY } from '../../utils/settingsUtils.js';
 import {

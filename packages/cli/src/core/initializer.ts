@@ -14,7 +14,7 @@ import {
   logCliConfiguration,
   startupProfiler,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type LoadedSettings } from '../config/settings.js';
 import { performInitialAuth } from './auth.js';
 import { validateTheme } from './theme.js';

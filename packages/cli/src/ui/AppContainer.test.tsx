@@ -31,7 +31,7 @@ import {
   AuthType,
   type AgentDefinition,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 // Mock coreEvents
 const mockCoreEvents = vi.hoisted(() => ({
@@ -61,9 +61,9 @@ const terminalNotificationsMocks = vi.hoisted(() => ({
   })),
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     coreEvents: mockCoreEvents,
@@ -250,7 +250,7 @@ import {
   writeToStdout,
   enableMouseEvents,
   disableMouseEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type ExtensionManager } from '../config/extension-manager.js';
 import {
   WARNING_PROMPT_DURATION_MS,

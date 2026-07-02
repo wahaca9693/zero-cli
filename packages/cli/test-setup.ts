@@ -6,7 +6,7 @@
 
 import { vi, beforeEach, afterEach } from 'vitest';
 import { format } from 'node:util';
-import { coreEvents, debugLogger } from '@google/zero-cli-core';
+import { coreEvents, debugLogger } from '@allhands/zero-cli-core';
 import { themeManager } from './src/ui/themes/theme-manager.js';
 import { mockInkSpinner } from './src/test-utils/mockSpinner.js';
 

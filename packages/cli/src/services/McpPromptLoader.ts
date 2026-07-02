@@ -8,7 +8,7 @@ import {
   getErrorMessage,
   getMCPServerPrompts,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   CommandKind,
   type CommandContext,

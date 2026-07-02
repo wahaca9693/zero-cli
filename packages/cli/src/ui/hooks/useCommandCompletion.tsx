@@ -20,7 +20,7 @@ import {
   PROMPT_COMPLETION_MIN_LENGTH,
   type PromptCompletion,
 } from './usePromptCompletion.js';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import { useCompletion } from './useCompletion.js';
 
 export enum CompletionMode {

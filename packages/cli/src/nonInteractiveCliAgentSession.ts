@@ -10,7 +10,7 @@ import type {
   UserFeedbackPayload,
   AgentEvent,
   ContentPart,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { isSlashCommand } from './ui/utils/commandUtils.js';
 import type { LoadedSettings } from './config/settings.js';
 import {
@@ -39,7 +39,7 @@ import {
   zeroPartsToContentParts,
   displayContentToString,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import type { Part } from '@google/genai';
 import readline from 'node:readline';

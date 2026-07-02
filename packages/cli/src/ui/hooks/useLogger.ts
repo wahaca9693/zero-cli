@@ -5,7 +5,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Logger, type Config } from '@google/zero-cli-core';
+import { Logger, type Config } from '@allhands/zero-cli-core';
 
 /**
  * Hook to manage the logger instance.

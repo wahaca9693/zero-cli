@@ -22,7 +22,7 @@ import {
   getRealPath,
   type CustomTheme,
   IntegrityDataStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 const mockHomedir = vi.hoisted(() => vi.fn(() => '/tmp/mock-home'));
 const mockIntegrityManager = vi.hoisted(() => ({
@@ -38,9 +38,9 @@ vi.mock('os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     homedir: mockHomedir,
@@ -78,9 +78,7 @@ describe('ExtensionManager', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    tempHomeDir = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-cli-test-home-'),
-    );
+    tempHomeDir = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-cli-test-home-'));
     tempWorkspaceDir = fs.mkdtempSync(
       path.join(tempHomeDir, 'zero-cli-test-workspace-'),
     );

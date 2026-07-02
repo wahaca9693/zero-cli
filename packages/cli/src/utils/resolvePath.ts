@@ -5,7 +5,7 @@
  */
 
 import * as path from 'node:path';
-import { homedir } from '@google/zero-cli-core';
+import { homedir } from '@allhands/zero-cli-core';
 
 export function resolvePath(p: string): string {
   if (!p) {

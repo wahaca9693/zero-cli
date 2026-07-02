@@ -21,8 +21,8 @@ import {
   debugLogger,
   ExitCodes,
   coreEvents,
-} from '@google/zero-cli-core';
-import type { Config } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import * as auth from './config/auth.js';
 import { type LoadedSettings } from './config/settings.js';
 

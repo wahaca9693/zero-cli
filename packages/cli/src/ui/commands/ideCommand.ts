@@ -11,13 +11,13 @@ import {
   logIdeConnection,
   IdeConnectionEvent,
   IdeConnectionType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   getIdeInstaller,
   IDEConnectionStatus,
   ideContextStore,
   ZERO_CLI_COMPANION_EXTENSION_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import path from 'node:path';
 import type {
   CommandContext,

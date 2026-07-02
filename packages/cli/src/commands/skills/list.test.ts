@@ -13,18 +13,18 @@ import {
   afterEach,
   type MockInstance,
 } from 'vitest';
-import { type Config } from '@google/zero-cli-core';
+import { type Config } from '@allhands/zero-cli-core';
 import { handleList, listCommand } from './list.js';
 import { loadSettings, type LoadedSettings } from '../../config/settings.js';
 import { loadCliConfig } from '../../config/config.js';
 import chalk from 'chalk';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const { mockCoreDebugLogger } = await import(
     '../../test-utils/mockDebugLogger.js'
   );
   return mockCoreDebugLogger(
-    await importOriginal<typeof import('@google/zero-cli-core')>(),
+    await importOriginal<typeof import('@allhands/zero-cli-core')>(),
     {
       stripAnsi: false,
     },

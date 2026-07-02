@@ -14,7 +14,7 @@ import {
   checkExhaustive,
   type SubagentActivityItem,
   SubagentState,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   SubagentProgressDisplay,
   formatToolArgs,

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { type Config, createWorkingStdio } from '@google/zero-cli-core';
+import { type Config, createWorkingStdio } from '@allhands/zero-cli-core';
 import { runExitCleanup } from '../utils/cleanup.js';
 import * as acp from '@agentclientprotocol/sdk';
 import { Readable, Writable } from 'node:stream';

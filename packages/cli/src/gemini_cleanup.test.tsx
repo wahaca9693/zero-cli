@@ -11,11 +11,11 @@ import {
   SessionEndReason,
   type Config,
   type HookSystem,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     writeToStdout: vi.fn(),

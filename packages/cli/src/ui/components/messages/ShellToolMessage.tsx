@@ -29,7 +29,7 @@ import {
   type Config,
   ShellExecutionService,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   calculateShellMaxLines,
   calculateToolContentMaxLines,

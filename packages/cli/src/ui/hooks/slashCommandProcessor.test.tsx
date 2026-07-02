@@ -21,7 +21,7 @@ import {
   makeFakeConfig,
   coreEvents,
   type ZEROClient,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 const {
   logSlashCommand,
@@ -46,9 +46,9 @@ vi.mock('./useAlternateBuffer.js', () => ({
   useAlternateBuffer: mockUseAlternateBuffer,
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
 
   return {
     ...original,

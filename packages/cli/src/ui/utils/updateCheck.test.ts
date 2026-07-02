@@ -12,7 +12,7 @@ const getPackageJson = vi.hoisted(() => vi.fn());
 const debugLogger = vi.hoisted(() => ({
   warn: vi.fn(),
 }));
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   getPackageJson,
   debugLogger,
   ReleaseChannel: {

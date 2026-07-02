@@ -18,7 +18,7 @@ import {
   ApprovalMode,
   hasRedirection,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useToolActions } from '../../contexts/ToolActionsContext.js';
 import {
   RadioButtonSelect,

@@ -13,10 +13,10 @@ import {
   type SubagentProgress,
   type SubagentActivityItem,
   SubagentState,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { TOOL_STATUS } from '../../constants.js';
 import { STATUS_INDICATOR_WIDTH } from './ToolShared.js';
-import { safeJsonToMarkdown } from '@google/zero-cli-core';
+import { safeJsonToMarkdown } from '@allhands/zero-cli-core';
 
 export interface SubagentProgressDisplayProps {
   progress: SubagentProgress;

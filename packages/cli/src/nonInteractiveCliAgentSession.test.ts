@@ -12,7 +12,7 @@ import type {
   AnyDeclarativeTool,
   AnyToolInvocation,
   UserFeedbackPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   ToolErrorType,
   ZEROEventType,
@@ -22,7 +22,7 @@ import {
   CoreEvent,
   CoreToolCallStatus,
   JsonStreamEventType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Part } from '@google/genai';
 import { runNonInteractive } from './nonInteractiveCliAgentSession.js';
 import {
@@ -56,9 +56,9 @@ const mockCoreEvents = vi.hoisted(() => ({
 
 const mockSchedulerSchedule = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
 
   class MockChatRecordingService {
     initialize = vi.fn();
@@ -277,7 +277,7 @@ describe('runNonInteractive', () => {
   });
 
   it('should stream the specific stream started by send', async () => {
-    const { LegacyAgentSession } = await import('@google/zero-cli-core');
+    const { LegacyAgentSession } = await import('@allhands/zero-cli-core');
     const streamSpy = vi.spyOn(LegacyAgentSession.prototype, 'stream');
     const events: ServerZEROStreamEvent[] = [
       { type: ZEROEventType.Content, value: 'Hello again' },
@@ -301,7 +301,7 @@ describe('runNonInteractive', () => {
   });
 
   it('fails fast if the session acknowledges a message send without a stream', async () => {
-    const { LegacyAgentSession } = await import('@google/zero-cli-core');
+    const { LegacyAgentSession } = await import('@allhands/zero-cli-core');
     const sendSpy = vi
       .spyOn(LegacyAgentSession.prototype, 'send')
       .mockResolvedValue({ streamId: null });
@@ -1295,7 +1295,7 @@ describe('runNonInteractive', () => {
 
     // Cancellation will throw FatalCancellationError directly
 
-    const { LegacyAgentSession } = await import('@google/zero-cli-core');
+    const { LegacyAgentSession } = await import('@allhands/zero-cli-core');
     const sendSpy = vi.spyOn(LegacyAgentSession.prototype, 'send');
 
     await expect(
@@ -1833,9 +1833,7 @@ describe('runNonInteractive', () => {
   it.each([
     {
       name: 'loop detected',
-      events: [
-        { type: ZEROEventType.LoopDetected },
-      ] as ServerZEROStreamEvent[],
+      events: [{ type: ZEROEventType.LoopDetected }] as ServerZEROStreamEvent[],
       input: 'Loop test',
       promptId: 'prompt-id-loop',
     },
@@ -1890,9 +1888,7 @@ describe('runNonInteractive', () => {
   it.each([
     {
       name: 'loop detected',
-      events: [
-        { type: ZEROEventType.LoopDetected },
-      ] as ServerZEROStreamEvent[],
+      events: [{ type: ZEROEventType.LoopDetected }] as ServerZEROStreamEvent[],
       expectedWarning: 'Loop detected, stopping execution',
     },
   ])(
@@ -1985,12 +1981,10 @@ describe('runNonInteractive', () => {
       }),
     };
     mockZEROClient.getChat = vi.fn().mockReturnValue(mockChat);
-    mockZEROClient.getCurrentSequenceModel = vi
-      .fn()
-      .mockReturnValue('model-1');
+    mockZEROClient.getCurrentSequenceModel = vi.fn().mockReturnValue('model-1');
 
     // Mock debugLogger.error
-    const { debugLogger } = await import('@google/zero-cli-core');
+    const { debugLogger } = await import('@allhands/zero-cli-core');
     const debugLoggerErrorSpy = vi
       .spyOn(debugLogger, 'error')
       .mockImplementation(() => {});

@@ -13,7 +13,7 @@ import {
   EXTENSION_SETTINGS_FILENAME,
   EXTENSIONS_CONFIG_FILENAME,
 } from './variables.js';
-import { Storage } from '@google/zero-cli-core';
+import { Storage } from '@allhands/zero-cli-core';
 
 vi.mock('node:os');
 vi.mock('node:fs', async (importOriginal) => {
@@ -26,7 +26,7 @@ vi.mock('node:fs', async (importOriginal) => {
     },
   };
 });
-vi.mock('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core');
 
 describe('ExtensionStorage', () => {
   const mockHomeDir = '/mock/home';
@@ -38,8 +38,7 @@ describe('ExtensionStorage', () => {
     vi.mocked(Storage).mockImplementation(
       () =>
         ({
-          getExtensionsDir: () =>
-            path.join(mockHomeDir, '.zero', 'extensions'),
+          getExtensionsDir: () => path.join(mockHomeDir, '.zero', 'extensions'),
         }) as any, // eslint-disable-line @typescript-eslint/no-explicit-any
     );
     storage = new ExtensionStorage(extensionName);

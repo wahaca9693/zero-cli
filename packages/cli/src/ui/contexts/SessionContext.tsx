@@ -18,8 +18,8 @@ import type {
   ModelMetrics,
   RoleMetrics,
   ToolCallStats,
-} from '@google/zero-cli-core';
-import { uiTelemetryService } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import { uiTelemetryService } from '@allhands/zero-cli-core';
 
 export enum ToolCallDecision {
   ACCEPT = 'accept',

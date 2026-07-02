@@ -11,7 +11,7 @@ import { Text } from 'ink';
 import { type UIState } from '../contexts/UIStateContext.js';
 import { type QuotaState } from '../contexts/QuotaContext.js';
 import { type RestartReason } from '../hooks/useIdeTrustListener.js';
-import { type IdeInfo } from '@google/zero-cli-core';
+import { type IdeInfo } from '@allhands/zero-cli-core';
 
 // Mock child components
 vi.mock('../IdeIntegrationNudge.js', () => ({

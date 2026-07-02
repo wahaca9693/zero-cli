@@ -21,8 +21,8 @@ import {
   ApprovalMode,
   tokenLimit,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
-import type { Config } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import { StreamingState } from '../types.js';
 import { TransientMessageType } from '../../utils/events.js';
 import type { LoadedSettings } from '../../config/settings.js';

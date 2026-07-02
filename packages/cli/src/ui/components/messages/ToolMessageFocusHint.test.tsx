@@ -18,7 +18,7 @@ import {
   type Config,
   type ToolResultDisplay,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 vi.mock('../ZERORespondingSpinner.js', () => ({
   ZERORespondingSpinner: () => null,

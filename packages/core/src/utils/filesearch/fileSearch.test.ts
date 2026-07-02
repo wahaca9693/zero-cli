@@ -8,7 +8,7 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 import { FileSearchFactory, AbortError, filter } from './fileSearch.js';
-import { createTmpDir, cleanupTmpDir } from '@google/zero-cli-test-utils';
+import { createTmpDir, cleanupTmpDir } from '@allhands/zero-cli-test-utils';
 import * as crawler from './crawler.js';
 import { ZERO_IGNORE_FILE_NAME } from '../../config/constants.js';
 import { FileDiscoveryService } from '../../services/fileDiscoveryService.js';

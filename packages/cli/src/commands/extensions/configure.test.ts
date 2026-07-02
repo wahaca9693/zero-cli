@@ -14,13 +14,13 @@ import {
 } from 'vitest';
 import { configureCommand } from './configure.js';
 import yargs from 'yargs';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 import {
   updateSetting,
   getScopedEnvContents,
   type ExtensionSetting,
 } from '../../config/extensions/extensionSettings.js';
-import { cleanupTmpDir } from '@google/zero-cli-test-utils';
+import { cleanupTmpDir } from '@allhands/zero-cli-test-utils';
 import prompts from 'prompts';
 import * as fs from 'node:fs';
 import * as os from 'node:os';

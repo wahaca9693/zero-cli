@@ -38,9 +38,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     tmpdir: vi.fn(() => '/tmp'),
@@ -201,10 +201,7 @@ describe('IDEServer', () => {
     await ideServer.start(mockContext);
     const replaceMock = mockContext.environmentVariableCollection.replace;
 
-    expect(replaceMock).toHaveBeenCalledWith(
-      'ZERO_CLI_IDE_WORKSPACE_PATH',
-      '',
-    );
+    expect(replaceMock).toHaveBeenCalledWith('ZERO_CLI_IDE_WORKSPACE_PATH', '');
 
     const port = getPortFromMock(replaceMock);
     const expectedPortFile = path.join(

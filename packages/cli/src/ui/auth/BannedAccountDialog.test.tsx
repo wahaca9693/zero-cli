@@ -13,14 +13,14 @@ import { useKeypress } from '../hooks/useKeypress.js';
 import {
   openBrowserSecurely,
   shouldLaunchBrowser,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { Text } from 'ink';
 import { runExitCleanup } from '../../utils/cleanup.js';
 import type { AccountSuspensionInfo } from '../contexts/UIStateContext.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     openBrowserSecurely: vi.fn(),

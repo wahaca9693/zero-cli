@@ -19,7 +19,7 @@ import {
   isOverageEligibleModel,
   getDisplayString,
   type ZEROUserTier,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { type UseHistoryManagerReturn } from './useHistoryManager.js';
 import { MessageType } from '../types.js';

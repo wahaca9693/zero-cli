@@ -14,14 +14,14 @@ import type {
   Config,
   ZEROClient,
   CompletionBehavior,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   isBinary,
   ShellExecutionService,
   ExecutionLifecycleService,
   CoreToolCallStatus,
   escapeShellArg,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type PartListUnion } from '@google/genai';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import { SHELL_COMMAND_NAME } from '../constants.js';

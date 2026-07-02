@@ -14,9 +14,9 @@ import { ExtensionManager } from '../../config/extension-manager.js';
 
 const mockGetErrorMessage = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     getErrorMessage: mockGetErrorMessage,

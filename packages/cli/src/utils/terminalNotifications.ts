@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { debugLogger, writeToStdout } from '@google/zero-cli-core';
+import { debugLogger, writeToStdout } from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../config/settings.js';
 import { sanitizeForDisplay } from '../ui/utils/textUtils.js';
 import { TerminalCapabilityManager } from '../ui/utils/terminalCapabilityManager.js';

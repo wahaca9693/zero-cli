@@ -10,7 +10,7 @@ import {
   coreEvents,
   CoreEvent,
   type ConsoleLogPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface UseErrorCountReturn {
   errorCount: number;

@@ -6,7 +6,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { coreEvents, type ZEROCLIExtension } from '@google/zero-cli-core';
+import { coreEvents, type ZEROCLIExtension } from '@allhands/zero-cli-core';
 import { ExtensionStorage } from './storage.js';
 import { z } from 'zod';
 

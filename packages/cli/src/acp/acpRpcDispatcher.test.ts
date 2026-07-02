@@ -20,7 +20,7 @@ import {
   type Config,
   type MessageBus,
   type Storage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../config/settings.js';
 import { loadCliConfig, type CliArgs } from '../config/config.js';
 import { loadSettings, SettingScope } from '../config/settings.js';

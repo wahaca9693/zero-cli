@@ -27,7 +27,7 @@ import {
   loadSkillsFromDir,
   getRealPath,
   normalizePath,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   loadSettings,
   createTestMergedSettings,
@@ -108,9 +108,9 @@ const mockIntegrityManager = vi.hoisted(() => ({
   verify: vi.fn().mockResolvedValue('verified'),
   store: vi.fn().mockResolvedValue(undefined),
 }));
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     logExtensionEnable: mockLogExtensionEnable,
@@ -1982,9 +1982,7 @@ ${INSTALL_WARNING_MESSAGE}`,
         // We should not see the request to use git clone, this is a repo that
         // has no github releases so it is the only install method.
         expect(mockRequestConsent).toHaveBeenCalledExactlyOnceWith(
-          expect.stringContaining(
-            'Installing extension "zero-test-extension"',
-          ),
+          expect.stringContaining('Installing extension "zero-test-extension"'),
         );
         expect(mockGit.clone).toHaveBeenCalled();
         const metadataPath = path.join(

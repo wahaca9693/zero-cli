@@ -8,7 +8,7 @@ import {
   IdeClient,
   UserAccountManager,
   getVersion,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   Command,
   CommandContext,

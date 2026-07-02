@@ -23,7 +23,7 @@ import {
   type CustomTheme,
   type SandboxConfig,
   type VertexAiRoutingConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { SessionRetentionSettings } from './settings.js';
 import { DEFAULT_MIN_RETENTION } from '../utils/sessionCleanup.js';
 

@@ -18,7 +18,7 @@ import {
   isTerminalEditor,
   isValidEditorType,
   resolveEditorTypeFromCommand,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 /**
  * Command name substrings used to guess whether an unknown $VISUAL/$EDITOR

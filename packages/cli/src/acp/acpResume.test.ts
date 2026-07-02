@@ -20,13 +20,13 @@ import {
   AuthType,
   type Config,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { loadCliConfig, type CliArgs } from '../config/config.js';
 import {
   SessionSelector,
   convertSessionToHistoryFormats,
 } from '../utils/sessionUtils.js';
-import { convertSessionToClientHistory } from '@google/zero-cli-core';
+import { convertSessionToClientHistory } from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../config/settings.js';
 import { waitFor } from '../test-utils/async.js';
 
@@ -44,9 +44,9 @@ vi.mock('../utils/sessionUtils.js', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     CoreToolCallStatus: {

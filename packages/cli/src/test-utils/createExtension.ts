@@ -11,7 +11,7 @@ import {
   type ExtensionInstallMetadata,
   type ExtensionSetting,
   type CustomTheme,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   EXTENSIONS_CONFIG_FILENAME,
   INSTALL_METADATA_FILENAME,

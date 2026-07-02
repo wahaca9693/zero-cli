@@ -20,7 +20,7 @@ import {
   EDIT_DISPLAY_NAME,
   READ_FILE_DISPLAY_NAME,
   GLOB_DISPLAY_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   HistoryItem,
   HistoryItemWithoutId,

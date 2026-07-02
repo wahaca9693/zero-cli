@@ -10,7 +10,7 @@ import {
   useAlternateBuffer,
   isAlternateBufferEnabled,
 } from './useAlternateBuffer.js';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 
 vi.mock('../contexts/ConfigContext.js', () => ({
   useConfig: vi.fn(),

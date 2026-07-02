@@ -13,7 +13,7 @@ import {
   exitAlternateScreen,
   enableLineWrapping,
   disableLineWrapping,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import process from 'node:process';
 import {
   cleanupTerminalOnExit,

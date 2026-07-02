@@ -11,7 +11,7 @@ import type {
   AuthType,
   Config,
   ContentGeneratorConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 // Mock child components
 vi.mock('./ZEROPrivacyNotice.js', async () => {

@@ -5,8 +5,8 @@
  */
 
 import { vi } from 'vitest';
-import { NoopSandboxManager } from '@google/zero-cli-core';
-import type { Config } from '@google/zero-cli-core';
+import { NoopSandboxManager } from '@allhands/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import {
   createTestMergedSettings,
   type LoadedSettings,

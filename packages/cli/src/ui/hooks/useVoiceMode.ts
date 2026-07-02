@@ -11,7 +11,7 @@ import {
   debugLogger,
   type Config,
   type TranscriptionProvider,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { TextBuffer } from '../components/shared/text-buffer.js';
 import type { MergedSettings } from '../../config/settingsSchema.js';
 import type { Key } from './useKeypress.js';
@@ -161,8 +161,7 @@ export function useVoiceMode({
 
       if (cleanupIfStopped()) return;
 
-      const voiceBackend =
-        settings.experimental.voice?.backend ?? 'zero-live';
+      const voiceBackend = settings.experimental.voice?.backend ?? 'zero-live';
 
       if (!apiKey && voiceBackend === 'zero-live') {
         setQueueErrorMessage(

@@ -32,7 +32,7 @@ import {
   GitService,
   checkPathTrust,
   isHeadlessMode,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Command, CommandArgument } from '../commands/types.js';
 
 type CommandResponse = {

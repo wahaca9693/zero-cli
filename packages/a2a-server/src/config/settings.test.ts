@@ -9,7 +9,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import { loadSettings, USER_SETTINGS_PATH } from './settings.js';
-import { debugLogger, checkPathTrust } from '@google/zero-cli-core';
+import { debugLogger, checkPathTrust } from '@allhands/zero-cli-core';
 
 const mocks = vi.hoisted(() => {
   const suffix = Math.random().toString(36).slice(2);
@@ -27,9 +27,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const path = await import('node:path');
   const os = await import('node:os');
   return {

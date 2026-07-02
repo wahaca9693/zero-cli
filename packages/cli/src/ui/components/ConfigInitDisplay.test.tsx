@@ -23,7 +23,7 @@ import {
   MCPServerStatus,
   type McpClient,
   coreEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { Text } from 'ink';
 
 // Mock ZEROSpinner

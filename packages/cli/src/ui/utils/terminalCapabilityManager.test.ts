@@ -10,7 +10,7 @@ import { EventEmitter } from 'node:events';
 import {
   enableKittyKeyboardProtocol,
   enableModifyOtherKeys,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 
 // Mock fs
@@ -19,7 +19,7 @@ vi.mock('node:fs', () => ({
 }));
 
 // Mock core
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   debugLogger: {
     log: vi.fn(),
     warn: vi.fn(),

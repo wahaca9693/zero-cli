@@ -11,7 +11,7 @@ import {
   coreEvents,
   type McpClient,
   MCPServerStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { ZEROSpinner } from './ZEROSpinner.js';
 import { theme } from '../semantic-colors.js';
 

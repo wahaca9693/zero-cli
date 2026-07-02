@@ -9,7 +9,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
 import { ExtensionManager } from './extension-manager.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 import { createTestMergedSettings } from './settings.js';
 import { createExtension } from '../test-utils/createExtension.js';
 import { EXTENSIONS_DIRECTORY_NAME } from './extensions/variables.js';
@@ -24,9 +24,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-// Mock @google/zero-cli-core
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
-  const core = await importOriginal<typeof import('@google/zero-cli-core')>();
+// Mock @allhands/zero-cli-core
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
+  const core = await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...core,
     homedir: mockHomedir,

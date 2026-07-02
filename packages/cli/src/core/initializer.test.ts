@@ -11,14 +11,14 @@ import {
   logIdeConnection,
   logCliConfiguration,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { performInitialAuth } from './auth.js';
 import { validateTheme } from './theme.js';
 import { type LoadedSettings } from '../config/settings.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     IdeClient: {

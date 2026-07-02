@@ -10,7 +10,7 @@ import {
   getErrorMessage,
   type ExtensionInstallMetadata,
   type ZEROCLIExtension,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { ExtensionUpdateState } from '../../ui/state/extensions.js';
 import * as os from 'node:os';
 import * as https from 'node:https';

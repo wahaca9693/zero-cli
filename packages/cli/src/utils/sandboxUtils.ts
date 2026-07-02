@@ -8,7 +8,7 @@ import os from 'node:os';
 import fs from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { quote } from 'shell-quote';
-import { debugLogger, ZERO_DIR } from '@google/zero-cli-core';
+import { debugLogger, ZERO_DIR } from '@allhands/zero-cli-core';
 
 export const LOCAL_DEV_SANDBOX_IMAGE_NAME = 'zero-cli-sandbox';
 export const SANDBOX_NETWORK_NAME = 'zero-cli-sandbox';

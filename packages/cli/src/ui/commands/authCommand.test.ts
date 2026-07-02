@@ -9,10 +9,10 @@ import { authCommand } from './authCommand.js';
 import { type CommandContext } from './types.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
 import { SettingScope } from '../../config/settings.js';
-import type { ZEROClient } from '@google/zero-cli-core';
+import type { ZEROClient } from '@allhands/zero-cli-core';
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     clearCachedCredentialFile: vi.fn().mockResolvedValue(undefined),
@@ -79,7 +79,7 @@ describe('authCommand', () => {
       expect(logoutCommand?.name).toBe('signout');
 
       const { clearCachedCredentialFile } = await import(
-        '@google/zero-cli-core'
+        '@allhands/zero-cli-core'
       );
 
       await logoutCommand!.action!(mockContext, '');
@@ -114,8 +114,7 @@ describe('authCommand', () => {
       await logoutCommand!.action!(mockContext, '');
 
       expect(
-        mockContext.services.agentContext?.zeroClient
-          .stripThoughtsFromHistory,
+        mockContext.services.agentContext?.zeroClient.stripThoughtsFromHistory,
       ).toHaveBeenCalled();
     });
 

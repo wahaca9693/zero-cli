@@ -15,7 +15,7 @@ import {
   ZERO_DIR,
   type Config,
   type GitService,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 describe('restoreCommand', () => {
   let mockContext: CommandContext;

@@ -15,7 +15,7 @@ import {
   checkExhaustive,
   AuthType,
   UserAccountManager,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { ConsoleSummaryDisplay } from './ConsoleSummaryDisplay.js';
 import process from 'node:process';
 import os from 'node:os';

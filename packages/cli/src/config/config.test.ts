@@ -20,14 +20,14 @@ import {
   type MCPServerConfig,
   type ZEROCLIExtension,
   Storage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { loadCliConfig, parseArguments, type CliArgs } from './config.js';
 import {
   type Settings,
   type MergedSettings,
   createTestMergedSettings,
 } from './settings.js';
-import * as ServerConfig from '@google/zero-cli-core';
+import * as ServerConfig from '@allhands/zero-cli-core';
 
 import { isWorkspaceTrusted } from './trustedFolders.js';
 import { ExtensionManager } from './extension-manager.js';
@@ -97,9 +97,9 @@ vi.mock('read-package-up', () => ({
   ),
 }));
 
-vi.mock('@google/zero-cli-core', async () => {
+vi.mock('@allhands/zero-cli-core', async () => {
   const actualServer = await vi.importActual<typeof ServerConfig>(
-    '@google/zero-cli-core',
+    '@allhands/zero-cli-core',
   );
   return {
     ...actualServer,

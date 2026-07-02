@@ -21,7 +21,7 @@ import { ExtensionStorage } from './storage.js';
 import prompts from 'prompts';
 import * as fsPromises from 'node:fs/promises';
 import * as fs from 'node:fs';
-import { KeychainTokenStorage } from '@google/zero-cli-core';
+import { KeychainTokenStorage } from '@allhands/zero-cli-core';
 import { EXTENSION_SETTINGS_FILENAME } from './variables.js';
 
 vi.mock('prompts');
@@ -33,9 +33,9 @@ vi.mock('os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     KeychainTokenStorage: vi.fn(),

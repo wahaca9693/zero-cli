@@ -11,7 +11,7 @@ import {
   type ResumedSessionData,
   type ConversationRecord,
   loadConversationRecord,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import { ZEROCliSession } from './session.js';
 import type { ZEROCliAgentOptions } from './types.js';

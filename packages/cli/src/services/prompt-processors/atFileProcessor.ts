@@ -8,7 +8,7 @@ import {
   debugLogger,
   flatMapTextParts,
   readPathFromWorkspace,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { CommandContext } from '../../ui/commands/types.js';
 import { MessageType } from '../../ui/types.js';
 import {

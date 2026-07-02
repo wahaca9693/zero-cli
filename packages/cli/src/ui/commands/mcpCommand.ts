@@ -10,7 +10,7 @@ import type {
   CommandContext,
 } from './types.js';
 import { CommandKind } from './types.js';
-import type { MessageActionReturn } from '@google/zero-cli-core';
+import type { MessageActionReturn } from '@allhands/zero-cli-core';
 import {
   DiscoveredMCPTool,
   getMCPDiscoveryState,
@@ -22,7 +22,7 @@ import {
   mcpServerRequiresOAuth,
   CoreEvent,
   coreEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import { MessageType, type HistoryItemMcpStatus } from '../types.js';
 import {
@@ -113,7 +113,7 @@ const authCommand: SlashCommand = {
       });
 
       // Import dynamically to avoid circular dependencies
-      const { MCPOAuthProvider } = await import('@google/zero-cli-core');
+      const { MCPOAuthProvider } = await import('@allhands/zero-cli-core');
 
       let oauthConfig = server.oauth;
       if (!oauthConfig) {

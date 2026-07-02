@@ -6,7 +6,7 @@
 
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { Storage, coreEvents } from '@google/zero-cli-core';
+import { Storage, coreEvents } from '@allhands/zero-cli-core';
 
 /**
  * Stored in JSON file - represents persistent enablement state.

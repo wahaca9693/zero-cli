@@ -11,7 +11,7 @@ import {
   UserTierId,
   getCodeAssistServer,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface PrivacyState {
   isLoading: boolean;

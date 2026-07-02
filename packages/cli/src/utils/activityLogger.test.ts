@@ -6,7 +6,7 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { ActivityLogger, type NetworkLog } from './activityLogger.js';
-import type { ConsoleLogPayload } from '@google/zero-cli-core';
+import type { ConsoleLogPayload } from '@allhands/zero-cli-core';
 
 describe('ActivityLogger', () => {
   let logger: ActivityLogger;

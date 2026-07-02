@@ -6,7 +6,7 @@
 
 import { createContext, useContext } from 'react';
 import type { QuotaStats } from '../types.js';
-import type { UserTierId } from '@google/zero-cli-core';
+import type { UserTierId } from '@allhands/zero-cli-core';
 import type {
   ProQuotaDialogRequest,
   ValidationDialogRequest,

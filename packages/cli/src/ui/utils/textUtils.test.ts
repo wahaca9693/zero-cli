@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import type {
   SerializableConfirmationDetails,
   ToolEditConfirmationDetails,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   escapeAnsiCtrlCodes,
   stripUnsafeCharacters,

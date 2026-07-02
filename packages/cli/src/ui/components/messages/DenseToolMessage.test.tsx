@@ -17,7 +17,7 @@ import {
   type ListDirectoryResult,
   type ReadManyFilesResult,
   makeFakeConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   SerializableConfirmationDetails,
   ToolResultDisplay,

@@ -18,7 +18,7 @@ import {
   expandHomeDir,
   getDirectorySuggestions,
 } from '../utils/directoryUtils.js';
-import type { Config, WorkspaceContext } from '@google/zero-cli-core';
+import type { Config, WorkspaceContext } from '@allhands/zero-cli-core';
 import type { MultiFolderTrustDialogProps } from '../components/MultiFolderTrustDialog.js';
 import type { CommandContext, OpenCustomDialogActionReturn } from './types.js';
 import { MessageType } from '../types.js';

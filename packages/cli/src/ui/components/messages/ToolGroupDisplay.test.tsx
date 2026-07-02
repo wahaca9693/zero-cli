@@ -11,7 +11,7 @@ import { ToolGroupDisplay } from './ToolGroupDisplay.js';
 import {
   CoreToolCallStatus,
   UPDATE_TOPIC_DISPLAY_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   HistoryItemToolDisplayGroup,
   ToolDisplayItem,

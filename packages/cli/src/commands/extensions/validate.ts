@@ -5,7 +5,7 @@
  */
 
 import type { CommandModule } from 'yargs';
-import { debugLogger, getErrorMessage } from '@google/zero-cli-core';
+import { debugLogger, getErrorMessage } from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import semver from 'semver';

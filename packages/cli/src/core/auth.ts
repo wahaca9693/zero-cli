@@ -11,7 +11,7 @@ import {
   ValidationRequiredError,
   isAccountSuspendedError,
   ProjectIdRequiredError,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import type { AccountSuspensionInfo } from '../ui/contexts/UIStateContext.js';
 

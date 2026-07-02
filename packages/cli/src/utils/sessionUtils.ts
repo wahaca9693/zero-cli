@@ -13,7 +13,7 @@ import {
   type ConversationRecord,
   type MessageRecord,
   loadConversationRecord,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { stripUnsafeCharacters } from '../ui/utils/textUtils.js';

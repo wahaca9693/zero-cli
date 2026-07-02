@@ -9,16 +9,16 @@ import { renderWithProviders } from '../../test-utils/render.js';
 import { AppHeader } from './AppHeader.js';
 
 // We mock the entire module to control the isAppleTerminal export
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     isAppleTerminal: vi.fn(),
   };
 });
 
-import { isAppleTerminal } from '@google/zero-cli-core';
+import { isAppleTerminal } from '@allhands/zero-cli-core';
 
 describe('AppHeader Icon Rendering', () => {
   beforeEach(() => {

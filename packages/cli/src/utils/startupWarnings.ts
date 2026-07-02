@@ -7,7 +7,7 @@
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import { join as pathJoin } from 'node:path';
-import { getErrorMessage } from '@google/zero-cli-core';
+import { getErrorMessage } from '@allhands/zero-cli-core';
 
 const warningsFilePath = pathJoin(os.tmpdir(), 'zero-cli-warnings.txt');
 

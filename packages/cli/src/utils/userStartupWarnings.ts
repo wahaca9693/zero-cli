@@ -14,7 +14,7 @@ import {
   type StartupWarning,
   isHeadlessMode,
   FatalUntrustedWorkspaceError,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { Settings } from '../config/settingsSchema.js';
 import {
   isFolderTrustEnabled,

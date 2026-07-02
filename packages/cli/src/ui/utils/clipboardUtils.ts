@@ -13,7 +13,7 @@ import {
   spawnAsync,
   escapePath,
   Storage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 /**
  * Supported image file extensions based on ZERO API.

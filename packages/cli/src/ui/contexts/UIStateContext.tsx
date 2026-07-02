@@ -27,7 +27,7 @@ import type {
   AgentDefinition,
   FolderDiscoveryResults,
   PolicyUpdateConfirmationRequest,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type TransientMessageType } from '../../utils/events.js';
 import type { DOMElement } from 'ink';
 import type { SessionStatsState } from '../contexts/SessionContext.js';

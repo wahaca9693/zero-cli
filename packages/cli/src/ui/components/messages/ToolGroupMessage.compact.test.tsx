@@ -11,7 +11,7 @@ import {
   CoreToolCallStatus,
   LS_DISPLAY_NAME,
   READ_FILE_DISPLAY_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { expect, it, describe } from 'vitest';
 import type { IndividualToolCallDisplay } from '../../types.js';
 

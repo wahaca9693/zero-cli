@@ -12,7 +12,7 @@ import {
   type ExtensionInstallMetadata,
   type ZEROCLIExtension,
   homedir,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { logger } from '../utils/logger.js';

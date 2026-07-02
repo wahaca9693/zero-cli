@@ -11,7 +11,7 @@ import {
   debugLogger,
   CoreToolCallStatus,
   type SubagentActivityItem,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type HistoryItemToolGroup,
   type IndividualToolCallDisplay,

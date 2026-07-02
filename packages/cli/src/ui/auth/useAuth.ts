@@ -13,8 +13,8 @@ import {
   debugLogger,
   isAccountSuspendedError,
   ProjectIdRequiredError,
-} from '@google/zero-cli-core';
-import { getErrorMessage } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import { getErrorMessage } from '@allhands/zero-cli-core';
 import { AuthState } from '../types.js';
 import { validateAuthMethod } from '../../config/auth.js';
 

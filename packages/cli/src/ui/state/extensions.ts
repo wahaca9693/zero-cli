@@ -5,7 +5,7 @@
  */
 
 import type { ExtensionUpdateInfo } from '../../config/extension.js';
-import { checkExhaustive } from '@google/zero-cli-core';
+import { checkExhaustive } from '@allhands/zero-cli-core';
 
 export enum ExtensionUpdateState {
   CHECKING_FOR_UPDATES = 'checking for updates',

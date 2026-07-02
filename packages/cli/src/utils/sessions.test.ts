@@ -5,7 +5,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { deleteStoredSession, type Config } from '@google/zero-cli-core';
+import { deleteStoredSession, type Config } from '@allhands/zero-cli-core';
 import { listSessions, deleteSession } from './sessions.js';
 import { SessionSelector, type SessionInfo } from './sessionUtils.js';
 
@@ -20,8 +20,8 @@ vi.mock('./sessionUtils.js', () => ({
   formatRelativeTime: vi.fn(() => 'some time ago'),
 }));
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     deleteStoredSession: vi.fn(),

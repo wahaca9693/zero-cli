@@ -11,9 +11,9 @@ import * as path from 'node:path';
 import * as fs from 'node:fs';
 import * as fsPromises from 'node:fs/promises';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...original,
     homedir: () => mockHomeDir,

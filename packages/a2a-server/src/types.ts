@@ -7,7 +7,7 @@
 import type {
   MCPServerStatus,
   ToolConfirmationOutcome,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { TaskState } from '@a2a-js/sdk';
 
 // Interfaces and enums for the CoderAgent protocol.

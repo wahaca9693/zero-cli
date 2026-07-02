@@ -16,7 +16,7 @@ import {
   IDEConnectionStatus,
   ideContextStore,
   type IDEConnectionState,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useSettings } from '../contexts/SettingsContext.js';
 import { isWorkspaceTrusted } from '../../config/trustedFolders.js';
 

@@ -32,8 +32,8 @@ import {
   CoreToolCallStatus,
   type Config,
   type DiscoveredMCPResource,
-} from '@google/zero-cli-core';
-import * as core from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import * as core from '@allhands/zero-cli-core';
 import * as os from 'node:os';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import * as fs from 'node:fs';

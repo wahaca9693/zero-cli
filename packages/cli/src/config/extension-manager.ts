@@ -60,7 +60,7 @@ import {
   type PolicyRule,
   type SafetyCheckerRule,
   HookType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { maybeRequestConsentOrFail } from './extensions/consent.js';
 import { resolveEnvVarsInObject } from '../utils/envVarResolver.js';
 import { ExtensionStorage } from './extensions/storage.js';
@@ -675,9 +675,7 @@ Would you like to attempt to install via "git clone" instead?`,
    *
    * @internal visible for testing only
    */
-  async loadExtension(
-    extensionDir: string,
-  ): Promise<ZEROCLIExtension | null> {
+  async loadExtension(extensionDir: string): Promise<ZEROCLIExtension | null> {
     if (this.loadingPromise) {
       await this.loadingPromise;
     }
@@ -993,9 +991,7 @@ Would you like to attempt to install via "git clone" instead?`,
     }
   }
 
-  override async restartExtension(
-    extension: ZEROCLIExtension,
-  ): Promise<void> {
+  override async restartExtension(extension: ZEROCLIExtension): Promise<void> {
     const extensionDir = extension.path;
     await this.unloadExtension(extension);
     await this.loadExtension(extensionDir);

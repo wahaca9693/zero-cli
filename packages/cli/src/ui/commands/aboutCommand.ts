@@ -16,7 +16,7 @@ import {
   UserAccountManager,
   debugLogger,
   getVersion,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export const aboutCommand: SlashCommand = {
   name: 'about',

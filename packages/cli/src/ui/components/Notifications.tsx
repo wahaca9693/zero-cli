@@ -20,7 +20,7 @@ import {
   Storage,
   homedir,
   WarningPriority,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 import * as fs from 'node:fs/promises';
 import path from 'node:path';

@@ -7,7 +7,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { RestoreCommand, ListCheckpointsCommand } from './restore.js';
 import type { CommandContext } from './types.js';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import { createMockConfig } from '../utils/testing_utils.js';
 
 beforeEach(() => {
@@ -18,9 +18,9 @@ const mockPerformRestore = vi.hoisted(() => vi.fn());
 const mockLoggerInfo = vi.hoisted(() => vi.fn());
 const mockGetCheckpointInfoList = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...original,
     performRestore: mockPerformRestore,

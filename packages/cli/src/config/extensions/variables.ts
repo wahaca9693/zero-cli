@@ -6,7 +6,7 @@
 
 import * as path from 'node:path';
 import { type VariableSchema, VARIABLE_SCHEMA } from './variableSchema.js';
-import { ZERO_DIR } from '@google/zero-cli-core';
+import { ZERO_DIR } from '@allhands/zero-cli-core';
 
 /**
  * Represents a set of keys that will be considered invalid while unmarshalling

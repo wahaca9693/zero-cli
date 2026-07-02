@@ -5,7 +5,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { spawnAsync, getAbsoluteGitDir } from '@google/zero-cli-core';
+import { spawnAsync, getAbsoluteGitDir } from '@allhands/zero-cli-core';
 import fs from 'node:fs';
 import fsPromises from 'node:fs/promises';
 

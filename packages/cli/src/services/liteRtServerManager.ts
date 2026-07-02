@@ -5,8 +5,8 @@
  */
 
 import fs from 'node:fs';
-import { debugLogger } from '@google/zero-cli-core';
-import type { GemmaModelRouterSettings } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
+import type { GemmaModelRouterSettings } from '@allhands/zero-cli-core';
 import { getBinaryPath, isServerRunning } from '../commands/gemma/platform.js';
 import { DEFAULT_PORT } from '../commands/gemma/constants.js';
 

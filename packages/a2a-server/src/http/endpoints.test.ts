@@ -16,7 +16,7 @@ import type { AddressInfo } from 'node:net';
 import { createApp, updateCoderAgentCardUrl } from './app.js';
 import type { TaskMetadata } from '../types.js';
 import { createMockConfig } from '../utils/testing_utils.js';
-import { debugLogger, type Config } from '@google/zero-cli-core';
+import { debugLogger, type Config } from '@allhands/zero-cli-core';
 
 // Mock the logger to avoid polluting test output
 // Comment out to help debug
@@ -31,9 +31,7 @@ vi.mock('../agent/task.js', () => {
     contextId: string;
     taskState = 'submitted';
     config = {
-      getContentGeneratorConfig: vi
-        .fn()
-        .mockReturnValue({ model: 'zero-pro' }),
+      getContentGeneratorConfig: vi.fn().mockReturnValue({ model: 'zero-pro' }),
     };
     zeroClient = {
       initialize: vi.fn().mockResolvedValue(undefined),
@@ -88,9 +86,7 @@ describe('Agent Server Endpoints', () => {
 
   beforeAll(async () => {
     // Create a unique temporary directory for the workspace to avoid conflicts
-    testWorkspace = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'zero-agent-test-'),
-    );
+    testWorkspace = fs.mkdtempSync(path.join(os.tmpdir(), 'zero-agent-test-'));
     app = await createApp();
     await new Promise<void>((resolve) => {
       server = app.listen(0, () => {

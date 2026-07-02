@@ -16,9 +16,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     homedir: vi.fn(() => path.resolve('/mock/home')),
@@ -29,7 +29,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as os from 'node:os';
 import { loadEnvironment, type Settings } from './settings.js';
-import { ZERO_DIR, homedir as coreHomedir } from '@google/zero-cli-core';
+import { ZERO_DIR, homedir as coreHomedir } from '@allhands/zero-cli-core';
 
 vi.mock('node:fs');
 

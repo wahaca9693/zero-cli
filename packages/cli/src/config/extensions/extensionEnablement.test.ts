@@ -18,7 +18,7 @@ import {
   coreEvents,
   ZERO_DIR,
   type ZEROCLIExtension,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 vi.mock('node:os', () => ({
   homedir: vi.fn().mockReturnValue('/virtual-home'),
@@ -319,16 +319,12 @@ describe('ExtensionEnablementManager', () => {
     manager.disable('ext-test', true, '/Users/chrstn');
     manager.enable('ext-test', true, '/Users/chrstn/zero-cli');
 
-    expect(manager.isEnabled('ext-test', '/Users/chrstn/zero-cli')).toBe(
-      true,
-    );
+    expect(manager.isEnabled('ext-test', '/Users/chrstn/zero-cli')).toBe(true);
   });
 
   it('should not disable subdirectories if includeSubdirs is false', () => {
     manager.disable('ext-test', false, '/Users/chrstn');
-    expect(manager.isEnabled('ext-test', '/Users/chrstn/zero-cli')).toBe(
-      true,
-    );
+    expect(manager.isEnabled('ext-test', '/Users/chrstn/zero-cli')).toBe(true);
   });
 
   describe('extension overrides (-e <name>)', () => {

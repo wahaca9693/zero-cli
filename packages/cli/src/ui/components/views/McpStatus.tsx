@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { MCPServerStatus, type MCPServerConfig } from '@google/zero-cli-core';
+import { MCPServerStatus, type MCPServerConfig } from '@allhands/zero-cli-core';
 import { Box, Text } from 'ink';
 import type React from 'react';
 import { MAX_MCP_RESOURCES_TO_SHOW } from '../../constants.js';
@@ -60,9 +60,7 @@ export const McpStatus: React.FC<McpStatusProps> = ({
         <Text>No MCP servers configured.</Text>
         <Text>
           Please view MCP documentation in your browser:{' '}
-          <Text color={theme.text.link}>
-            https://goo.gle/zero-cli-docs-mcp
-          </Text>{' '}
+          <Text color={theme.text.link}>https://goo.gle/zero-cli-docs-mcp</Text>{' '}
           or use the cli /docs command
         </Text>
       </Box>

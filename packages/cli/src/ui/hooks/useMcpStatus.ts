@@ -10,7 +10,7 @@ import {
   coreEvents,
   MCPDiscoveryState,
   CoreEvent,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export function useMcpStatus(config: Config) {
   const [discoveryState, setDiscoveryState] = useState<MCPDiscoveryState>(

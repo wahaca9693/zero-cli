@@ -91,7 +91,7 @@ import {
   ApiKeyUpdatedEvent,
   LegacyAgentProtocol,
   type InjectionSource,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { validateAuthMethod } from '../config/auth.js';
 import process from 'node:process';
 import { useHistory } from './hooks/useHistoryManager.js';
@@ -448,9 +448,7 @@ export const AppContainer = (props: AppContainerProps) => {
       ? { remaining, limit, resetTime }
       : undefined;
   });
-  const [paidTier, setPaidTier] = useState<ZEROUserTier | undefined>(
-    undefined,
-  );
+  const [paidTier, setPaidTier] = useState<ZEROUserTier | undefined>(undefined);
 
   const [isConfigInitialized, setConfigInitialized] = useState(false);
 

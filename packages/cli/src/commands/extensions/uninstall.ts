@@ -5,7 +5,7 @@
  */
 
 import type { CommandModule } from 'yargs';
-import { debugLogger, getErrorMessage } from '@google/zero-cli-core';
+import { debugLogger, getErrorMessage } from '@allhands/zero-cli-core';
 import { requestConsentNonInteractive } from '../../config/extensions/consent.js';
 import { ExtensionManager } from '../../config/extension-manager.js';
 import { loadSettings } from '../../config/settings.js';

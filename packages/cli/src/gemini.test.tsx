@@ -28,7 +28,7 @@ import {
   type CliArgs,
 } from './config/config.js';
 import { loadSandboxConfig } from './config/sandboxConfig.js';
-import { createMockSandboxConfig } from '@google/zero-cli-test-utils';
+import { createMockSandboxConfig } from '@allhands/zero-cli-test-utils';
 import { terminalCapabilityManager } from './ui/utils/terminalCapabilityManager.js';
 import { start_sandbox } from './utils/sandbox.js';
 import { validateNonInteractiveAuth } from './validateNonInterActiveAuth.js';
@@ -50,7 +50,7 @@ import {
   coreEvents,
   AuthType,
   ExitCodes,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { act } from 'react';
 import { type InitializationResult } from './core/initializer.js';
 import { runNonInteractive } from './nonInteractiveCli.js';
@@ -81,9 +81,9 @@ vi.mock('./utils/terminalNotifications.js', () => ({
     terminalNotificationMocks.buildRunEventNotificationContent,
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     recordSlowRender: vi.fn(),
@@ -390,7 +390,7 @@ describe('initializeOutputListenersAndFlush', () => {
   });
 
   it('should flush backlogs and setup listeners if no listeners exist', async () => {
-    const { coreEvents } = await import('@google/zero-cli-core');
+    const { coreEvents } = await import('@allhands/zero-cli-core');
     const { initializeOutputListenersAndFlush } = await import('./zero.js');
 
     // Mock listenerCount to return 0
@@ -1081,7 +1081,7 @@ describe('resolveSessionId', () => {
       } as unknown as InstanceType<typeof SessionSelector>;
     });
 
-    const coreModule = await import('@google/zero-cli-core');
+    const coreModule = await import('@allhands/zero-cli-core');
     vi.spyOn(coreModule, 'loadConversationRecord').mockResolvedValueOnce({
       sessionId: 'old-session-id',
       projectHash: 'hash',
@@ -1439,9 +1439,7 @@ describe('zero.tsx main function exit codes', () => {
         refreshAuth: refreshAuthSpy,
       }),
     );
-    vi.mocked(validateNonInteractiveAuth).mockResolvedValue(
-      AuthType.USE_ZERO,
-    );
+    vi.mocked(validateNonInteractiveAuth).mockResolvedValue(AuthType.USE_ZERO);
 
     vi.mocked(loadSettings).mockReturnValue(
       createMockSettings({
@@ -1715,7 +1713,7 @@ describe('startInteractiveUI', () => {
   });
 
   it('should enable mouse events when alternate buffer is enabled', async () => {
-    const { enableMouseEvents } = await import('@google/zero-cli-core');
+    const { enableMouseEvents } = await import('@allhands/zero-cli-core');
     await startTestInteractiveUI(
       mockConfig,
       mockSettings,
@@ -1742,7 +1740,7 @@ describe('startInteractiveUI', () => {
   });
 
   it('should perform all startup tasks in correct order', async () => {
-    const { getVersion } = await import('@google/zero-cli-core');
+    const { getVersion } = await import('@allhands/zero-cli-core');
     const { checkForUpdates } = await import('./ui/utils/updateCheck.js');
     const { registerCleanup } = await import('./utils/cleanup.js');
 
@@ -1772,7 +1770,7 @@ describe('startInteractiveUI', () => {
   });
 
   it('should not recordSlowRender when less than threshold', async () => {
-    const { recordSlowRender } = await import('@google/zero-cli-core');
+    const { recordSlowRender } = await import('@allhands/zero-cli-core');
     performance.now.mockReturnValueOnce(0);
     await startTestInteractiveUI(
       mockConfig,
@@ -1787,7 +1785,7 @@ describe('startInteractiveUI', () => {
   });
 
   it('should call recordSlowRender when more than threshold', async () => {
-    const { recordSlowRender } = await import('@google/zero-cli-core');
+    const { recordSlowRender } = await import('@allhands/zero-cli-core');
     performance.now.mockReturnValueOnce(0);
     performance.now.mockReturnValueOnce(300);
 

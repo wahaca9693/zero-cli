@@ -21,7 +21,7 @@ import {
   isCompletedAskUserTool,
   type ToolResultDisplay,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useInactivityTimer } from '../../hooks/useInactivityTimer.js';
 import { formatCommand } from '../../key/keybindingUtils.js';
 import { Command } from '../../key/keyBindings.js';

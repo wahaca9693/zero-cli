@@ -14,7 +14,7 @@ import {
   getTruncatedCheckpointNames,
   performRestore,
   type ToolCallData,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type CommandContext,
   type SlashCommand,

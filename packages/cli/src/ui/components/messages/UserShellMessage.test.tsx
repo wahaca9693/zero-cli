@@ -7,7 +7,7 @@
 import { renderWithProviders } from '../../../test-utils/render.js';
 import { UserShellMessage } from './UserShellMessage.js';
 import { describe, it, expect, vi } from 'vitest';
-import { makeFakeConfig } from '@google/zero-cli-core';
+import { makeFakeConfig } from '@allhands/zero-cli-core';
 
 describe('UserShellMessage', () => {
   afterEach(() => {

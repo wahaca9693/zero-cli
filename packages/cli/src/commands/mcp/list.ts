@@ -17,8 +17,8 @@ import {
   debugLogger,
   applyAdminAllowlist,
   getAdminBlockedMcpServersMessage,
-} from '@google/zero-cli-core';
-import type { MCPServerConfig } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import type { MCPServerConfig } from '@allhands/zero-cli-core';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { ExtensionManager } from '../../config/extension-manager.js';
 import {

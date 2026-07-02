@@ -12,7 +12,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { AlternateBufferQuittingDisplay } from './AlternateBufferQuittingDisplay.js';
 import type { HistoryItem, HistoryItemWithoutId } from '../types.js';
 import { Text } from 'ink';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 
 vi.mock('../utils/terminalSetup.js', () => ({
   getTerminalProgram: () => null,
@@ -29,9 +29,9 @@ vi.mock('../contexts/AppContext.js', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     getMCPServerStatus: vi.fn(),

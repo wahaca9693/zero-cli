@@ -8,7 +8,7 @@ import {
   getPackageJson,
   type SandboxConfig,
   FatalSandboxError,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import commandExists from 'command-exists';
 import * as os from 'node:os';
 import type { Settings } from './settings.js';

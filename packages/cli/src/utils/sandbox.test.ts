@@ -15,8 +15,8 @@ import {
   FatalSandboxError,
   homedir,
   type SandboxConfig,
-} from '@google/zero-cli-core';
-import { createMockSandboxConfig } from '@google/zero-cli-test-utils';
+} from '@allhands/zero-cli-core';
+import { createMockSandboxConfig } from '@allhands/zero-cli-test-utils';
 import { EventEmitter } from 'node:events';
 
 const { mockedHomedir, mockedGetContainerPath, mockedExecCommands } =
@@ -85,9 +85,9 @@ vi.mock('node:util', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     debugLogger: {

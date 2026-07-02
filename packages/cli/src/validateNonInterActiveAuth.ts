@@ -11,7 +11,7 @@ import {
   getAuthTypeFromEnv,
   type Config,
   type AuthType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { USER_SETTINGS_PATH, type LoadedSettings } from './config/settings.js';
 import { validateAuthMethod } from './config/auth.js';
 import { handleError } from './utils/errors.js';

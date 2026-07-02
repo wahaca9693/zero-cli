@@ -84,7 +84,7 @@ import {
   Storage,
   AuthType,
   type MCPServerConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { updateSettingsFilePreservingFormat } from '../utils/commentJson.js';
 import {
   getSettingsSchema,
@@ -130,9 +130,9 @@ const mockCoreEvents = vi.hoisted(() => ({
   emitSettingsChanged: vi.fn(),
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const os = await import('node:os');
   const pathMod = await import('node:path');
   const fsMod = await import('node:fs');

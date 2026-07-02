@@ -9,7 +9,7 @@ import {
   getToolCallDataSchema,
   isNodeError,
   performRestore,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import type {

@@ -11,7 +11,7 @@ import {
   PolicyIntegrityManager,
   type Config,
   type PolicyUpdateConfirmationRequest,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { theme } from '../semantic-colors.js';
 import {
   RadioButtonSelect,

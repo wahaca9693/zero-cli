@@ -16,7 +16,7 @@ import {
   debugLogger,
   type ConsoleLogPayload,
   type Config,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import WebSocket from 'ws';
 
 const ACTIVITY_ID_HEADER = 'x-activity-request-id';

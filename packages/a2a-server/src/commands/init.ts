@@ -7,7 +7,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { CoderAgentEvent, type AgentSettings } from '../types.js';
-import { performInit } from '@google/zero-cli-core';
+import { performInit } from '@allhands/zero-cli-core';
 import type {
   Command,
   CommandContext,

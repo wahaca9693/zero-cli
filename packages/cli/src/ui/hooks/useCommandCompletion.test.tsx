@@ -21,7 +21,7 @@ import {
   CompletionMode,
 } from './useCommandCompletion.js';
 import type { CommandContext, SlashCommand } from '../commands/types.js';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import { useTextBuffer } from '../components/shared/text-buffer.js';
 import type { Suggestion } from '../components/SuggestionsDisplay.js';
 import {

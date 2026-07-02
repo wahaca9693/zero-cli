@@ -9,7 +9,7 @@ import type { CompressionProps } from '../../types.js';
 import { CliSpinner } from '../CliSpinner.js';
 import { theme } from '../../semantic-colors.js';
 import { SCREEN_READER_MODEL_PREFIX } from '../../textConstants.js';
-import { CompressionStatus } from '@google/zero-cli-core';
+import { CompressionStatus } from '@allhands/zero-cli-core';
 
 export interface CompressionDisplayProps {
   compression: CompressionProps;

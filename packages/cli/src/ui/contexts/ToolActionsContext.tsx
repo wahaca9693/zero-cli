@@ -20,7 +20,7 @@ import {
   type ToolConfirmationPayload,
   type SerializableConfirmationDetails,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { IndividualToolCallDisplay } from '../types.js';
 
 type LegacyConfirmationDetails = SerializableConfirmationDetails & {

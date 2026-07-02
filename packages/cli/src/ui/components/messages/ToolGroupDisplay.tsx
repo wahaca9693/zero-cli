@@ -6,7 +6,7 @@
 
 import type React from 'react';
 import { Box, Text } from 'ink';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 import type {
   HistoryItem,
   HistoryItemWithoutId,

@@ -14,8 +14,8 @@ import { CommandKind } from './types.js';
 import type {
   HookRegistryEntry,
   MessageActionReturn,
-} from '@google/zero-cli-core';
-import { getErrorMessage } from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
+import { getErrorMessage } from '@allhands/zero-cli-core';
 import { SettingScope, isLoadableSettingScope } from '../../config/settings.js';
 import { enableHook, disableHook } from '../../utils/hookSettings.js';
 import { renderHookActionFeedback } from '../../utils/hookUtils.js';

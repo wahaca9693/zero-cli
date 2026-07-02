@@ -16,7 +16,7 @@ import {
   getErrorMessage,
   unescapePath,
   type EditorType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   toCodePoints,
   cpLen,

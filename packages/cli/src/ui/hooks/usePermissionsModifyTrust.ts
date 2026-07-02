@@ -17,7 +17,7 @@ import { useSettings } from '../contexts/SettingsContext.js';
 import { MessageType } from '../types.js';
 import { type UseHistoryManagerReturn } from './useHistoryManager.js';
 import type { LoadedSettings } from '../../config/settings.js';
-import { coreEvents } from '@google/zero-cli-core';
+import { coreEvents } from '@allhands/zero-cli-core';
 
 interface TrustState {
   currentTrustLevel: TrustLevel | undefined;

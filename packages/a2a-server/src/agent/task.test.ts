@@ -15,16 +15,16 @@ import {
   type ToolCall,
   type ToolCallsUpdateMessage,
   MessageBusType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { createMockConfig } from '../utils/testing_utils.js';
 import type { ExecutionEventBus, RequestContext } from '@a2a-js/sdk/server';
 import { CoderAgentEvent } from '../types.js';
 
 const mockProcessRestorableToolCalls = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...original,
     processRestorableToolCalls: mockProcessRestorableToolCalls,

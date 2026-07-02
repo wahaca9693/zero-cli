@@ -15,7 +15,7 @@ import {
 } from 'vitest';
 import { handleInstall, installCommand } from './install.js';
 import yargs from 'yargs';
-import * as core from '@google/zero-cli-core';
+import * as core from '@allhands/zero-cli-core';
 import type { Stats } from 'node:fs';
 import * as path from 'node:path';
 import { promptForSetting } from '../../config/extensions/extensionSettings.js';
@@ -67,9 +67,9 @@ vi.mock('../../config/trustedFolders.js', () => ({
   },
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     FolderTrustDiscoveryService: {

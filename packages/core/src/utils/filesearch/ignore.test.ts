@@ -6,7 +6,7 @@
 
 import { describe, it, expect, afterEach } from 'vitest';
 import { Ignore, loadIgnoreRules } from './ignore.js';
-import { createTmpDir, cleanupTmpDir } from '@google/zero-cli-test-utils';
+import { createTmpDir, cleanupTmpDir } from '@allhands/zero-cli-test-utils';
 import { ZERO_IGNORE_FILE_NAME } from '../../config/constants.js';
 import { FileDiscoveryService } from '../../services/fileDiscoveryService.js';
 

@@ -15,7 +15,7 @@ import { Box, Text } from 'ink';
 import { act, useRef, useEffect } from 'react';
 import { waitFor } from '../../../test-utils/async.js';
 import { SHELL_COMMAND_NAME } from '../../constants.js';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 
 // Mock child components that might be complex
 vi.mock('../TerminalOutput.js', () => ({

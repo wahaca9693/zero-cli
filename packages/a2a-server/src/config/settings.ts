@@ -16,7 +16,7 @@ import {
   homedir,
   checkPathTrust,
   isHeadlessMode,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import stripJsonComments from 'strip-json-comments';
 
 export const USER_SETTINGS_DIR = path.join(homedir(), ZERO_DIR);

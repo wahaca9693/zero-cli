@@ -39,7 +39,7 @@ import {
   type SettingsValue,
   TOGGLE_TYPES,
 } from '../../config/settingsSchema.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 import { useSearchBuffer } from '../hooks/useSearchBuffer.js';
 import {

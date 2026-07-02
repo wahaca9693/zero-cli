@@ -6,7 +6,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import { getToolGroupBorderAppearance } from './borderStyles.js';
-import { CoreToolCallStatus, makeFakeConfig } from '@google/zero-cli-core';
+import { CoreToolCallStatus, makeFakeConfig } from '@allhands/zero-cli-core';
 import { theme } from '../semantic-colors.js';
 import type { IndividualToolCallDisplay } from '../types.js';
 import { renderWithProviders } from '../../test-utils/render.js';

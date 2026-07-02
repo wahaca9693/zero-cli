@@ -12,7 +12,7 @@ import {
   HookEventName,
   ConfigSource,
   type HookRegistryEntry,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { CommandContext } from './types.js';
 import { SettingScope } from '../../config/settings.js';
 

@@ -7,7 +7,7 @@
 import * as path from 'node:path';
 import * as fs from 'node:fs';
 import { opendir } from 'node:fs/promises';
-import { homedir, type WorkspaceContext } from '@google/zero-cli-core';
+import { homedir, type WorkspaceContext } from '@allhands/zero-cli-core';
 
 const MAX_SUGGESTIONS = 50;
 const MATCH_BUFFER_MULTIPLIER = 3;

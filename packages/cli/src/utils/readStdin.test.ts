@@ -6,9 +6,9 @@
 
 import { vi, describe, expect, it, beforeEach, afterEach } from 'vitest';
 import { readStdin } from './readStdin.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
-vi.mock('@google/zero-cli-core', () => ({
+vi.mock('@allhands/zero-cli-core', () => ({
   debugLogger: {
     warn: vi.fn(),
   },

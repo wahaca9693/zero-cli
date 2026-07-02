@@ -30,7 +30,7 @@ import {
   MessageBusType,
   type ToolConfirmationRequest,
   DiscoveredMCPTool,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { LoadedSettings } from '../config/settings.js';
 import { type Part, FinishReason } from '@google/genai';
 import * as fs from 'node:fs/promises';
@@ -47,9 +47,9 @@ vi.mock('node:path', async (importOriginal) => {
 });
 
 vi.mock(
-  '@google/zero-cli-core',
+  '@allhands/zero-cli-core',
   async (
-    importOriginal: () => Promise<typeof import('@google/zero-cli-core')>,
+    importOriginal: () => Promise<typeof import('@allhands/zero-cli-core')>,
   ) => {
     const actual = await importOriginal();
     return {
@@ -578,7 +578,7 @@ describe('Session', () => {
 
   it('should send sessionUpdate when approval mode changes', async () => {
     const { coreEvents, CoreEvent, ApprovalMode } = await import(
-      '@google/zero-cli-core'
+      '@allhands/zero-cli-core'
     );
 
     coreEvents.emit(CoreEvent.ApprovalModeChanged, {

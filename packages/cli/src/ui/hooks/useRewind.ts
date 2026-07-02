@@ -8,7 +8,7 @@ import { useState, useCallback } from 'react';
 import type {
   ConversationRecord,
   MessageRecord,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   calculateTurnStats,
   calculateRewindImpact,

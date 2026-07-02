@@ -8,7 +8,7 @@ import {
   ACTIVE_SHELL_MAX_LINES,
   COMPLETED_SHELL_MAX_LINES,
 } from '../constants.js';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 
 /**
  * Constants used for calculating available height for tool results.

@@ -13,7 +13,7 @@ import {
   detectIdeFromEnv,
   IDE_DEFINITIONS,
   type IdeInfo,
-} from '@google/zero-cli-core/src/ide/detect-ide.js';
+} from '@allhands/zero-cli-core/src/ide/detect-ide.js';
 
 const CLI_IDE_COMPANION_IDENTIFIER = 'Google.zero-cli-vscode-ide-companion';
 const INFO_MESSAGE_SHOWN_KEY = 'zeroCliInfoMessageShown';
@@ -133,26 +133,20 @@ export async function activate(context: vscode.ExtensionContext) {
       DIFF_SCHEME,
       diffContentProvider,
     ),
-    (vscode.commands.registerCommand(
-      'zero.diff.accept',
-      (uri?: vscode.Uri) => {
-        const docUri = uri ?? vscode.window.activeTextEditor?.document.uri;
-        if (docUri && docUri.scheme === DIFF_SCHEME) {
-          // eslint-disable-next-line @typescript-eslint/no-floating-promises
-          diffManager.acceptDiff(docUri);
-        }
-      },
-    ),
-    vscode.commands.registerCommand(
-      'zero.diff.cancel',
-      (uri?: vscode.Uri) => {
-        const docUri = uri ?? vscode.window.activeTextEditor?.document.uri;
-        if (docUri && docUri.scheme === DIFF_SCHEME) {
-          // eslint-disable-next-line @typescript-eslint/no-floating-promises
-          diffManager.cancelDiff(docUri);
-        }
-      },
-    )),
+    (vscode.commands.registerCommand('zero.diff.accept', (uri?: vscode.Uri) => {
+      const docUri = uri ?? vscode.window.activeTextEditor?.document.uri;
+      if (docUri && docUri.scheme === DIFF_SCHEME) {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        diffManager.acceptDiff(docUri);
+      }
+    }),
+    vscode.commands.registerCommand('zero.diff.cancel', (uri?: vscode.Uri) => {
+      const docUri = uri ?? vscode.window.activeTextEditor?.document.uri;
+      if (docUri && docUri.scheme === DIFF_SCHEME) {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        diffManager.cancelDiff(docUri);
+      }
+    })),
   );
 
   ideServer = new IDEServer(log, diffManager);

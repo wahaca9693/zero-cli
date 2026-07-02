@@ -14,7 +14,7 @@ import type {
   ConversationRecord,
   MessageRecord,
   HistoryTurn,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { UseHistoryManagerReturn } from './useHistoryManager.js';
 import type { HistoryItemWithoutId } from '../types.js';
 

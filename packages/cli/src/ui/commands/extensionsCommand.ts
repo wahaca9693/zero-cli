@@ -9,7 +9,7 @@ import {
   listExtensions,
   getErrorMessage,
   type ExtensionInstallMetadata,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type { ExtensionUpdateInfo } from '../../config/extension.js';
 import {
   emptyIcon,

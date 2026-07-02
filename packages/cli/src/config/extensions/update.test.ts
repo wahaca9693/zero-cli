@@ -23,7 +23,7 @@ import {
   type ZEROCLIExtension,
   type ExtensionInstallMetadata,
   IntegrityDataStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 vi.mock('./storage.js', () => ({
   ExtensionStorage: {

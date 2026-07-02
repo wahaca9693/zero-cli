@@ -12,7 +12,7 @@ import {
   FolderTrustDiscoveryService,
   getRealPath,
   getErrorMessage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   INSTALL_WARNING_MESSAGE,
   promptForConsentNonInteractive,

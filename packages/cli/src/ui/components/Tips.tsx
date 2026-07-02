@@ -7,7 +7,7 @@
 import type React from 'react';
 import { Box, Text } from 'ink';
 import { theme } from '../semantic-colors.js';
-import { type Config } from '@google/zero-cli-core';
+import { type Config } from '@allhands/zero-cli-core';
 
 interface TipsProps {
   config: Config;
@@ -30,8 +30,8 @@ export const Tips: React.FC<TipsProps> = ({ config }) => {
         <Text color={theme.text.secondary}>/help</Text> for more information
       </Text>
       <Text color={theme.text.primary}>
-        {zeroMdFileCount === 0 ? '3.' : '2.'} Ask coding questions, edit code
-        or run commands
+        {zeroMdFileCount === 0 ? '3.' : '2.'} Ask coding questions, edit code or
+        run commands
       </Text>
       <Text color={theme.text.primary}>
         {zeroMdFileCount === 0 ? '4.' : '3.'} Be specific for the best results

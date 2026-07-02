@@ -10,7 +10,7 @@ import type {
   ShellExecutionResult,
   ShellOutputEvent,
   ShellExecutionConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 export interface MockShellCommand {
   command: string | RegExp;

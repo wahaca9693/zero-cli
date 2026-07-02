@@ -17,7 +17,7 @@ import {
   validatePlanContent,
   processSingleFileContent,
   type FileSystemService,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import { useKeyMatchers } from '../hooks/useKeyMatchers.js';
 
@@ -25,9 +25,9 @@ vi.mock('../utils/editorUtils.js', () => ({
   openFileInEditor: vi.fn(),
 }));
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     validatePlanPath: vi.fn(async () => null),
@@ -169,7 +169,7 @@ Implement a comprehensive authentication system with multiple providers.
           }),
           getUseAlternateBuffer: () => useAlternateBuffer,
           getUseTerminalBuffer: () => false,
-        } as unknown as import('@google/zero-cli-core').Config,
+        } as unknown as import('@allhands/zero-cli-core').Config,
         settings: createMockSettings({ ui: { useAlternateBuffer } }),
         inputState: {
           buffer: { text: '' } as never,
@@ -477,7 +477,7 @@ Implement a comprehensive authentication system with multiple providers.
                 }),
                 getUseAlternateBuffer: () => useAlternateBuffer ?? true,
                 getUseTerminalBuffer: () => false,
-              } as unknown as import('@google/zero-cli-core').Config,
+              } as unknown as import('@allhands/zero-cli-core').Config,
               settings: createMockSettings({
                 ui: { useAlternateBuffer: useAlternateBuffer ?? true },
               }),

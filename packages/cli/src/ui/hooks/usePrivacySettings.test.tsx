@@ -12,14 +12,14 @@ import {
   getCodeAssistServer,
   type Config,
   type CodeAssistServer,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { usePrivacySettings } from './usePrivacySettings.js';
 import { waitFor } from '../../test-utils/async.js';
 
 // Mock the dependencies
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     getCodeAssistServer: vi.fn(),

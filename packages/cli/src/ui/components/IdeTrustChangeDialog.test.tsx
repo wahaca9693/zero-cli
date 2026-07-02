@@ -9,7 +9,7 @@ import { act } from 'react';
 import * as processUtils from '../../utils/processUtils.js';
 import { renderWithProviders } from '../../test-utils/render.js';
 import { IdeTrustChangeDialog } from './IdeTrustChangeDialog.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 describe('IdeTrustChangeDialog', () => {
   beforeEach(() => {

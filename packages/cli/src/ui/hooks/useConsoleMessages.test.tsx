@@ -12,9 +12,9 @@ import {
   useErrorCount,
   initializeConsoleStore,
 } from './useConsoleMessages.js';
-import { coreEvents } from '@google/zero-cli-core';
+import { coreEvents } from '@allhands/zero-cli-core';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual = await importOriginal();
   const handlers = new Map<string, (payload: unknown) => void>();
 

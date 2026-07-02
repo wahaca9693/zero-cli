@@ -12,12 +12,12 @@ import {
   convertSessionToClientHistory,
   uiTelemetryService,
   loadConversationRecord,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   HistoryTurn,
   Config,
   ResumedSessionData,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   convertSessionToHistoryFormats,
   type SessionInfo,

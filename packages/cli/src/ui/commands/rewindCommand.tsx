@@ -23,7 +23,7 @@ import {
   type ChatRecordingService,
   type ZEROClient,
   convertSessionToClientHistory,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 /**
  * Helper function to handle the core logic of rewinding a conversation.

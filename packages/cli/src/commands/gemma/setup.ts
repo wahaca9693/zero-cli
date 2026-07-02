@@ -10,7 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawn as nodeSpawn } from 'node:child_process';
 import chalk from 'chalk';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 import { loadSettings, SettingScope } from '../../config/settings.js';
 import { exitCli } from '../utils.js';
 import {
@@ -365,9 +365,7 @@ async function handleSetup(argv: SetupArgs): Promise<number> {
 
     log(chalk.green('  ✓ Settings updated'));
     log(chalk.dim('    User (~/.zero/settings.json): autoStartServer'));
-    log(
-      chalk.dim('    Workspace (.zero/settings.json): enabled, classifier'),
-    );
+    log(chalk.dim('    Workspace (.zero/settings.json): enabled, classifier'));
     settingsUpdated = true;
   } catch (error) {
     logError(

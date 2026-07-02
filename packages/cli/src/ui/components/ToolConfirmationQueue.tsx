@@ -17,7 +17,7 @@ import {
 import { useUIState } from '../contexts/UIStateContext.js';
 import type { ConfirmingToolState } from '../hooks/useConfirmingTool.js';
 import { StickyHeader } from './StickyHeader.js';
-import type { SerializableConfirmationDetails } from '@google/zero-cli-core';
+import type { SerializableConfirmationDetails } from '@allhands/zero-cli-core';
 import { useUIActions } from '../contexts/UIActionsContext.js';
 
 function getConfirmationHeader(

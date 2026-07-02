@@ -18,7 +18,7 @@ import { useUIState, type UIState } from '../contexts/UIStateContext.js';
 import { useIsScreenReaderEnabled } from 'ink';
 import * as fs from 'node:fs/promises';
 import { act } from 'react';
-import { WarningPriority } from '@google/zero-cli-core';
+import { WarningPriority } from '@allhands/zero-cli-core';
 
 // Mock dependencies
 vi.mock('../contexts/AppContext.js');
@@ -60,9 +60,9 @@ vi.mock('node:path', async () => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const MockStorage = vi.fn().mockImplementation(() => ({
     getExtensionsDir: () => '/mock/home/.zero/extensions',
   }));

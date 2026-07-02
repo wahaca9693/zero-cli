@@ -15,7 +15,7 @@ import {
   createTmpDir,
   cleanupTmpDir,
   type FileSystemStructure,
-} from '@google/zero-cli-test-utils';
+} from '@allhands/zero-cli-test-utils';
 
 describe('useShellCompletion utilities', () => {
   describe('getTokenAtCursor', () => {

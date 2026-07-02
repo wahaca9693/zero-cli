@@ -13,7 +13,7 @@ import {
   type Config,
   CoreEvent,
   coreEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 describe('useMcpStatus', () => {
   let mockConfig: Config;

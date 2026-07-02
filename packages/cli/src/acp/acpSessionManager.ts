@@ -12,7 +12,7 @@ import {
   startupProfiler,
   convertSessionToClientHistory,
   createPolicyUpdater,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as acp from '@agentclientprotocol/sdk';
 import { randomUUID } from 'node:crypto';
 import { loadSettings, type LoadedSettings } from '../config/settings.js';

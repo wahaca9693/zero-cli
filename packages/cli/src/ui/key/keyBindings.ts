@@ -7,7 +7,7 @@
 import * as fs from 'node:fs/promises';
 import { z } from 'zod';
 import { parse as parseIgnoringComments } from 'comment-json';
-import { isNodeError, Storage } from '@google/zero-cli-core';
+import { isNodeError, Storage } from '@allhands/zero-cli-core';
 
 /**
  * Command enum for all available keyboard shortcuts

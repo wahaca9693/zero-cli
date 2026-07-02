@@ -8,7 +8,7 @@ import {
   CompressionStatus,
   type ChatCompressionInfo,
   type ZEROClient,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { compressCommand } from './compressCommand.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';

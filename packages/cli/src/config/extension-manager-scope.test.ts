@@ -10,17 +10,17 @@ import * as path from 'node:path';
 import * as os from 'node:os';
 import { ExtensionManager } from './extension-manager.js';
 import { createTestMergedSettings } from './settings.js';
-import { cleanupTmpDir } from '@google/zero-cli-test-utils';
+import { cleanupTmpDir } from '@allhands/zero-cli-test-utils';
 import {
   loadAgentsFromDirectory,
   loadSkillsFromDir,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 let currentTempHome = '';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     homedir: () => currentTempHome,

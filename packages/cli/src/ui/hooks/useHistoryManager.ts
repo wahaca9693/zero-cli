@@ -6,7 +6,7 @@
 
 import { useState, useRef, useCallback, useMemo } from 'react';
 import type { HistoryItem } from '../types.js';
-import type { ChatRecordingService } from '@google/zero-cli-core/src/services/chatRecordingService.js';
+import type { ChatRecordingService } from '@allhands/zero-cli-core/src/services/chatRecordingService.js';
 
 // Type for the updater function passed to updateHistoryItem
 type HistoryItemUpdater = (

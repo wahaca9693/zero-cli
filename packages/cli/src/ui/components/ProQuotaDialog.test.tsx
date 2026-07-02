@@ -14,7 +14,7 @@ import {
   PREVIEW_ZERO_MODEL,
   DEFAULT_ZERO_FLASH_MODEL,
   AuthType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 // Mock the child component to make it easier to test the parent
 vi.mock('./shared/RadioButtonSelect.js', () => ({

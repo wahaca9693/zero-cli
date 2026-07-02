@@ -12,7 +12,7 @@ import {
   type Config,
   UserAccountManager,
   AuthType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import path from 'node:path';
 
 // Normalize paths to POSIX slashes for stable cross-platform snapshots.
@@ -38,9 +38,9 @@ vi.mock('../../utils/installationInfo.js', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...original,
     shortenPath: (p: string, len: number) => {

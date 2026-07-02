@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AuthType, loadApiKey } from '@google/zero-cli-core';
+import { AuthType, loadApiKey } from '@allhands/zero-cli-core';
 import { loadEnvironment, loadSettings } from './settings.js';
 
 export async function validateAuthMethod(

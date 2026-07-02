@@ -12,7 +12,7 @@ import type {
   SlashCommandActionReturn,
 } from './types.js';
 import { CommandKind } from './types.js';
-import { performInit } from '@google/zero-cli-core';
+import { performInit } from '@allhands/zero-cli-core';
 
 export const initCommand: SlashCommand = {
   name: 'init',

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { Content } from '@google/zero-cli-core';
+import type { Content } from '@allhands/zero-cli-core';
 import type { Tool } from './tool.js';
 import type { SkillReference } from './skills.js';
 import type { ZEROCliAgent } from './agent.js';

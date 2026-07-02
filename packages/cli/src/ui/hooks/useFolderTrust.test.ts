@@ -25,16 +25,16 @@ import {
   type LoadedTrustedFolders,
 } from '../../config/trustedFolders.js';
 import * as trustedFolders from '../../config/trustedFolders.js';
-import { coreEvents, ExitCodes, isHeadlessMode } from '@google/zero-cli-core';
+import { coreEvents, ExitCodes, isHeadlessMode } from '@allhands/zero-cli-core';
 import { MessageType } from '../types.js';
 
 const mockedCwd = vi.hoisted(() => vi.fn().mockReturnValue('/mock/cwd'));
 const mockedExit = vi.hoisted(() => vi.fn());
 
-vi.mock('@google/zero-cli-core', async () => {
+vi.mock('@allhands/zero-cli-core', async () => {
   const actual = await vi.importActual<
-    typeof import('@google/zero-cli-core')
-  >('@google/zero-cli-core');
+    typeof import('@allhands/zero-cli-core')
+  >('@allhands/zero-cli-core');
   return {
     ...actual,
     isHeadlessMode: vi.fn().mockReturnValue(false),

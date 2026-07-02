@@ -8,7 +8,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '../../../test-utils/render.js';
 import { Text } from 'ink';
 import { McpProgressIndicator, ToolInfo } from './ToolShared.js';
-import { CoreToolCallStatus } from '@google/zero-cli-core';
+import { CoreToolCallStatus } from '@allhands/zero-cli-core';
 
 vi.mock('../ZERORespondingSpinner.js', () => ({
   ZERORespondingSpinner: () => <Text>MockSpinner</Text>,

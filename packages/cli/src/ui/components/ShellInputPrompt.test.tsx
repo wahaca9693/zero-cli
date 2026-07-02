@@ -8,7 +8,7 @@ import { render } from '../../test-utils/render.js';
 import { ShellInputPrompt } from './ShellInputPrompt.js';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { act } from 'react';
-import { ShellExecutionService } from '@google/zero-cli-core';
+import { ShellExecutionService } from '@allhands/zero-cli-core';
 import { useUIActions, type UIActions } from '../contexts/UIActionsContext.js';
 
 // Mock useUIActions
@@ -24,8 +24,8 @@ vi.mock('../hooks/useKeypress.js', () => ({
 }));
 
 // Mock ShellExecutionService
-vi.mock('@google/zero-cli-core', async () => {
-  const actual = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actual = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actual,
     ShellExecutionService: {

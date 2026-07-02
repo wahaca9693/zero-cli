@@ -9,7 +9,7 @@ import {
   checkExhaustive,
   getErrorMessage,
   type ZEROCLIExtension,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   ExtensionUpdateState,
   extensionUpdatesReducer,

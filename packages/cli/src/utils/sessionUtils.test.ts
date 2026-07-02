@@ -17,7 +17,7 @@ import {
   type Storage,
   type MessageRecord,
   CoreToolCallStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs/promises';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
@@ -1049,8 +1049,7 @@ describe('convertSessionToHistoryFormats', () => {
         id: '1',
         timestamp: new Date().toISOString(),
         type: 'user',
-        content:
-          '<session_context>\nThis is the ZERO CLI\n</session_context>',
+        content: '<session_context>\nThis is the ZERO CLI\n</session_context>',
       },
       {
         id: '2',

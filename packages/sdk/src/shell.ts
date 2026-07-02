@@ -9,7 +9,7 @@ import {
   ShellExecutionService,
   ShellTool,
   type Config as CoreConfig,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import type {
   AgentShell,
   AgentShellResult,

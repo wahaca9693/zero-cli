@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import {
   OutputFormat,
   JsonFormatter,
@@ -20,7 +20,7 @@ import {
   coreEvents,
   getErrorType,
   getErrorMessage,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { runSyncCleanup } from './cleanup.js';
 
 interface ErrorWithCode extends Error {

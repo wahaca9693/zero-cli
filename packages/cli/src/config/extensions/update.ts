@@ -16,7 +16,7 @@ import {
   getErrorMessage,
   type ZEROCLIExtension,
   IntegrityDataStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import { copyExtension, type ExtensionManager } from '../extension-manager.js';
 import { ExtensionStorage } from './storage.js';

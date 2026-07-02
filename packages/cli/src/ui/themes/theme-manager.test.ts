@@ -11,7 +11,7 @@ if (process.env['NO_COLOR'] !== undefined) {
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { themeManager, DEFAULT_THEME } from './theme-manager.js';
-import { debugLogger, type CustomTheme } from '@google/zero-cli-core';
+import { debugLogger, type CustomTheme } from '@allhands/zero-cli-core';
 import * as fs from 'node:fs';
 import * as os from 'node:os';
 import type * as osActual from 'node:os';
@@ -26,9 +26,9 @@ vi.mock('node:os', async (importOriginal) => {
   };
 });
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     homedir: () => os.homedir(),

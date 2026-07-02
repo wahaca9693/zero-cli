@@ -18,14 +18,14 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { quote, parse } from 'shell-quote';
 import { promisify } from 'node:util';
-import type { Config, SandboxConfig } from '@google/zero-cli-core';
+import type { Config, SandboxConfig } from '@allhands/zero-cli-core';
 import {
   coreEvents,
   debugLogger,
   FatalSandboxError,
   ZERO_DIR,
   homedir,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { ConsolePatcher } from '../ui/utils/ConsolePatcher.js';
 import { randomBytes } from 'node:crypto';
 import {
@@ -251,10 +251,7 @@ export async function start_sandbox(
     // determine full path for zero-cli to distinguish linked vs installed setting
     const gcPath = process.argv[1] ? fs.realpathSync(process.argv[1]) : '';
 
-    const projectSandboxDockerfile = path.join(
-      ZERO_DIR,
-      'sandbox.Dockerfile',
-    );
+    const projectSandboxDockerfile = path.join(ZERO_DIR, 'sandbox.Dockerfile');
     const isCustomProjectSandbox = fs.existsSync(projectSandboxDockerfile);
 
     const image = config.image;
@@ -346,9 +343,7 @@ export async function start_sandbox(
     // mount user settings directory inside container, after creating if missing
     // note user/home changes inside sandbox and we mount at BOTH paths for consistency
     const userHomeDirOnHost = homedir();
-    const userSettingsDirInSandbox = getContainerPath(
-      `/home/node/${ZERO_DIR}`,
-    );
+    const userSettingsDirInSandbox = getContainerPath(`/home/node/${ZERO_DIR}`);
     if (!fs.existsSync(userHomeDirOnHost)) {
       fs.mkdirSync(userHomeDirOnHost, { recursive: true });
     }
@@ -996,8 +991,7 @@ async function start_lxc_sandbox(
       TERM: process.env['TERM'],
       COLORTERM: process.env['COLORTERM'],
       ZERO_CLI_IDE_SERVER_PORT: process.env['ZERO_CLI_IDE_SERVER_PORT'],
-      ZERO_CLI_IDE_WORKSPACE_PATH:
-        process.env['ZERO_CLI_IDE_WORKSPACE_PATH'],
+      ZERO_CLI_IDE_WORKSPACE_PATH: process.env['ZERO_CLI_IDE_WORKSPACE_PATH'],
       TERM_PROGRAM: process.env['TERM_PROGRAM'],
     };
     for (const [key, value] of Object.entries(envVarsToForward)) {

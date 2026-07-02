@@ -7,7 +7,7 @@
 import type React from 'react';
 import { Box, Text } from 'ink';
 import { theme } from '../semantic-colors.js';
-import { checkExhaustive } from '@google/zero-cli-core';
+import { checkExhaustive } from '@allhands/zero-cli-core';
 
 export type ChecklistStatus =
   | 'pending'

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { listExtensions } from '@google/zero-cli-core';
+import { listExtensions } from '@allhands/zero-cli-core';
 import type {
   Command,
   CommandContext,

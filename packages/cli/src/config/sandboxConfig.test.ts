@@ -4,14 +4,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { getPackageJson } from '@google/zero-cli-core';
+import { getPackageJson } from '@allhands/zero-cli-core';
 import commandExists from 'command-exists';
 import * as os from 'node:os';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { loadSandboxConfig } from './sandboxConfig.js';
 
 // Mock dependencies
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...(actual as object),
@@ -221,9 +221,7 @@ describe('loadSandboxConfig', () => {
       mockedCommandExistsSync.mockReturnValue(false);
       await expect(
         loadSandboxConfig({}, { sandbox: 'podman' }),
-      ).rejects.toThrow(
-        "Missing sandbox command 'podman' (from ZERO_SANDBOX)",
-      );
+      ).rejects.toThrow("Missing sandbox command 'podman' (from ZERO_SANDBOX)");
     });
 
     it('should throw if the specified command is invalid', async () => {

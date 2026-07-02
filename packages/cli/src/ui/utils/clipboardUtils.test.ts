@@ -41,9 +41,9 @@ vi.mock('node:child_process', async (importOriginal) => {
     execSync: vi.fn(),
   };
 });
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     spawnAsync: vi.fn(),
@@ -58,7 +58,7 @@ vi.mock('@google/zero-cli-core', async (importOriginal) => {
   };
 });
 
-import { spawnAsync } from '@google/zero-cli-core';
+import { spawnAsync } from '@allhands/zero-cli-core';
 // Keep static imports for stateless functions
 import {
   cleanupOldClipboardImages,

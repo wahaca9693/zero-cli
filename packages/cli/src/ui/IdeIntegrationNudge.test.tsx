@@ -8,12 +8,12 @@ import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
 import { renderWithProviders } from '../test-utils/render.js';
 import { act } from 'react';
 import { IdeIntegrationNudge } from './IdeIntegrationNudge.js';
-import { debugLogger } from '@google/zero-cli-core';
+import { debugLogger } from '@allhands/zero-cli-core';
 
 // Mock debugLogger
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     debugLogger: {

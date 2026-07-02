@@ -13,7 +13,7 @@ import {
   TOPIC_PARAM_STRATEGIC_INTENT,
   CoreToolCallStatus,
   UPDATE_TOPIC_TOOL_NAME,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 
 describe('<TopicMessage />', () => {
   const baseArgs = {

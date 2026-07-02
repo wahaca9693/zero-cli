@@ -9,7 +9,7 @@ import { type ReactElement } from 'react';
 import type {
   ExtensionLoader,
   ZEROCLIExtension,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
 import { MessageType } from '../types.js';
 import {

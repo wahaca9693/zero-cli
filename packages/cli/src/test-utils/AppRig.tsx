@@ -35,7 +35,7 @@ import {
   debugLogger,
   CoreToolCallStatus,
   IntegrityDataStatus,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   type MockShellCommand,
   MockShellExecutionService,
@@ -88,9 +88,9 @@ vi.mock('../ui/contexts/StreamingContext.js', async (importOriginal) => {
 });
 
 // Mock core functions globally for tests using AppRig.
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   const { MockShellExecutionService: MockService } = await import(
     './MockShellExecutionService.js'
   );
@@ -324,7 +324,7 @@ export class AppRig {
       gcConfig.contentGeneratorConfig = newContentGeneratorConfig;
 
       // Initialize BaseLlmClient now that the ContentGenerator is available
-      const { BaseLlmClient } = await import('@google/zero-cli-core');
+      const { BaseLlmClient } = await import('@allhands/zero-cli-core');
       gcConfig.baseLlmClient = new BaseLlmClient(
         gcConfig.contentGenerator,
         this.config!,

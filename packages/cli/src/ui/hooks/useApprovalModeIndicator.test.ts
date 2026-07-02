@@ -21,14 +21,14 @@ import {
   Config,
   ApprovalMode,
   type Config as ActualConfigType,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { useKeypress, type Key } from './useKeypress.js';
 import { MessageType } from '../types.js';
 
 vi.mock('./useKeypress.js');
 
-vi.mock('@google/zero-cli-core', async () => {
-  const actualServerModule = await vi.importActual('@google/zero-cli-core');
+vi.mock('@allhands/zero-cli-core', async () => {
+  const actualServerModule = await vi.importActual('@allhands/zero-cli-core');
   return {
     ...actualServerModule,
     Config: vi.fn(),

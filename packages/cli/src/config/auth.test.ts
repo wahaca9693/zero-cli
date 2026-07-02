@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AuthType } from '@google/zero-cli-core';
+import { AuthType } from '@allhands/zero-cli-core';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { validateAuthMethod } from './auth.js';
 
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     loadApiKey: vi.fn().mockResolvedValue(null),

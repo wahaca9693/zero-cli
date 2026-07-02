@@ -13,11 +13,11 @@ import {
   CoreToolCallStatus,
   type Config,
   type ToolExecuteConfirmationDetails,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { ToolGroupMessage } from './messages/ToolGroupMessage.js';
 import { renderWithProviders } from '../../test-utils/render.js';
 import { createMockSettings } from '../../test-utils/settings.js';
-import { makeFakeConfig } from '@google/zero-cli-core';
+import { makeFakeConfig } from '@allhands/zero-cli-core';
 
 // Mock child components
 vi.mock('./messages/ToolGroupMessage.js', () => ({

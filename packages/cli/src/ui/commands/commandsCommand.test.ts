@@ -5,7 +5,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { Storage, type Config } from '@google/zero-cli-core';
+import { Storage, type Config } from '@allhands/zero-cli-core';
 import { commandsCommand } from './commandsCommand.js';
 import { MessageType } from '../types.js';
 import { createMockCommandContext } from '../../test-utils/mockCommandContext.js';
@@ -14,10 +14,10 @@ import { FileCommandLoader } from '../../services/FileCommandLoader.js';
 
 vi.mock('../../services/FileCommandLoader.js');
 
-vi.mock('@google/zero-cli-core', async () => {
+vi.mock('@allhands/zero-cli-core', async () => {
   const actual = await vi.importActual<
-    typeof import('@google/zero-cli-core')
-  >('@google/zero-cli-core');
+    typeof import('@allhands/zero-cli-core')
+  >('@allhands/zero-cli-core');
   return {
     ...actual,
     Storage: class extends actual.Storage {

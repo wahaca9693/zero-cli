@@ -22,13 +22,13 @@ import {
   CoreToolCallStatus,
   type WaitingToolCall,
   SubagentState,
-} from '@google/zero-cli-core';
-import { createMockMessageBus } from '@google/zero-cli-core/src/test-utils/mock-message-bus.js';
+} from '@allhands/zero-cli-core';
+import { createMockMessageBus } from '@allhands/zero-cli-core/src/test-utils/mock-message-bus.js';
 
 // Mock Core Scheduler
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const actual =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
   return {
     ...actual,
     Scheduler: vi.fn().mockImplementation(() => ({
@@ -275,7 +275,7 @@ describe('useToolScheduler', () => {
     };
 
     // Mock the specific return value for this test
-    const { Scheduler } = await import('@google/zero-cli-core');
+    const { Scheduler } = await import('@allhands/zero-cli-core');
     vi.mocked(Scheduler).mockImplementation(
       () =>
         ({

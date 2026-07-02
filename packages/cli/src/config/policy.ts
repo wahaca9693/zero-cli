@@ -18,7 +18,7 @@ import {
   type PolicyUpdateConfirmationRequest,
   writeToStderr,
   debugLogger,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type Settings } from './settings.js';
 
 /**

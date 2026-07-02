@@ -13,13 +13,13 @@ import {
   beforeEach,
   afterEach,
 } from 'vitest';
-import type { Config } from '@google/zero-cli-core';
+import type { Config } from '@allhands/zero-cli-core';
 import {
   OutputFormat,
   FatalInputError,
   debugLogger,
   coreEvents,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import {
   handleError,
   handleToolError,
@@ -34,9 +34,9 @@ vi.mock('./cleanup.js', () => ({
 }));
 
 // Mock the core modules
-vi.mock('@google/zero-cli-core', async (importOriginal) => {
+vi.mock('@allhands/zero-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/zero-cli-core')>();
+    await importOriginal<typeof import('@allhands/zero-cli-core')>();
 
   return {
     ...original,

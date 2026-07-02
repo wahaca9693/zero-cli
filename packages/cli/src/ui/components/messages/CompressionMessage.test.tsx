@@ -9,7 +9,7 @@ import {
   CompressionMessage,
   type CompressionDisplayProps,
 } from './CompressionMessage.js';
-import { CompressionStatus } from '@google/zero-cli-core';
+import { CompressionStatus } from '@allhands/zero-cli-core';
 import { type CompressionProps } from '../../types.js';
 import { describe, it, expect } from 'vitest';
 

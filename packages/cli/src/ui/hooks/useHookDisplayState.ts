@@ -10,7 +10,7 @@ import {
   CoreEvent,
   type HookStartPayload,
   type HookEndPayload,
-} from '@google/zero-cli-core';
+} from '@allhands/zero-cli-core';
 import { type ActiveHook } from '../types.js';
 import { WARNING_PROMPT_DURATION_MS } from '../constants.js';
 

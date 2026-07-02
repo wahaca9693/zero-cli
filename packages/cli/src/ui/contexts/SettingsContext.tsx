@@ -12,7 +12,7 @@ import type {
   SettingsFile,
 } from '../../config/settings.js';
 import { SettingScope } from '../../config/settings.js';
-import { checkExhaustive } from '@google/zero-cli-core';
+import { checkExhaustive } from '@allhands/zero-cli-core';
 
 export const SettingsContext = React.createContext<LoadedSettings | undefined>(
   undefined,
