@@ -1,0 +1,273 @@
+/**
+ * @license
+ * Copyright 2025 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { MemoryContextManager } from './memoryContextManager.js';
+import * as memoryDiscovery from '../utils/memoryDiscovery.js';
+import type { Config } from '../config/config.js';
+import { coreEvents, CoreEvent } from '../utils/events.js';
+
+// Mock memoryDiscovery module
+vi.mock('../utils/memoryDiscovery.js', async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import('../utils/memoryDiscovery.js')>();
+  return {
+    ...actual,
+    getGlobalMemoryPaths: vi.fn(),
+    getUserProjectMemoryPaths: vi.fn(),
+    getExtensionMemoryPaths: vi.fn(),
+    getEnvironmentMemoryPaths: vi.fn(),
+    readZEROMdFiles: vi.fn(),
+    loadJitSubdirectoryMemory: vi.fn(),
+    deduplicatePathsByFileIdentity: vi.fn(),
+    concatenateInstructions: vi
+      .fn()
+      .mockImplementation(actual.concatenateInstructions),
+  };
+});
+
+describe('MemoryContextManager', () => {
+  let memoryContextManager: MemoryContextManager;
+  let mockConfig: Config;
+
+  beforeEach(() => {
+    mockConfig = {
+      getWorkingDir: vi.fn().mockReturnValue('/app'),
+      getImportFormat: vi.fn().mockReturnValue('tree'),
+      getWorkspaceContext: vi.fn().mockReturnValue({
+        getDirectories: vi.fn().mockReturnValue(['/app']),
+      }),
+      getExtensionLoader: vi.fn().mockReturnValue({
+        getExtensions: vi.fn().mockReturnValue([]),
+      }),
+      getMcpClientManager: vi.fn().mockReturnValue({
+        getMcpInstructions: vi.fn().mockReturnValue('MCP Instructions'),
+      }),
+      isTrustedFolder: vi.fn().mockReturnValue(true),
+      getMemoryBoundaryMarkers: vi.fn().mockReturnValue(['.git']),
+      storage: {
+        getProjectMemoryDir: vi
+          .fn()
+          .mockReturnValue('/home/user/.zero/memory/test-project'),
+      },
+    } as unknown as Config;
+
+    memoryContextManager = new MemoryContextManager(mockConfig);
+    vi.clearAllMocks();
+    vi.spyOn(coreEvents, 'emit');
+    vi.mocked(memoryDiscovery.getExtensionMemoryPaths).mockReturnValue([]);
+    vi.mocked(memoryDiscovery.getUserProjectMemoryPaths).mockResolvedValue([]);
+    // default mock: deduplication returns paths as-is (no deduplication)
+    vi.mocked(
+      memoryDiscovery.deduplicatePathsByFileIdentity,
+    ).mockImplementation(async (paths: string[]) => ({
+      paths,
+      identityMap: new Map<string, string>(),
+    }));
+  });
+
+  describe('refresh', () => {
+    it('should load and format global and environment memory', async () => {
+      const globalPaths = ['/home/user/.zero/ZERO.md'];
+      const envPaths = ['/app/ZERO.md'];
+
+      vi.mocked(memoryDiscovery.getGlobalMemoryPaths).mockResolvedValue(
+        globalPaths,
+      );
+      vi.mocked(memoryDiscovery.getEnvironmentMemoryPaths).mockResolvedValue(
+        envPaths,
+      );
+
+      vi.mocked(memoryDiscovery.readZEROMdFiles).mockResolvedValue([
+        { filePath: globalPaths[0], content: 'Global Content' },
+        { filePath: envPaths[0], content: 'Env Content' },
+      ]);
+
+      await memoryContextManager.refresh();
+
+      expect(memoryDiscovery.getGlobalMemoryPaths).toHaveBeenCalled();
+      expect(memoryDiscovery.getEnvironmentMemoryPaths).toHaveBeenCalledWith(
+        ['/app'],
+        ['.git'],
+      );
+      expect(memoryDiscovery.readZEROMdFiles).toHaveBeenCalledWith(
+        expect.arrayContaining([...globalPaths, ...envPaths]),
+        'tree',
+        ['.git'],
+      );
+
+      expect(memoryContextManager.getGlobalMemory()).toContain(
+        'Global Content',
+      );
+      expect(memoryContextManager.getEnvironmentMemory()).toContain(
+        'Env Content',
+      );
+      expect(memoryContextManager.getEnvironmentMemory()).toContain(
+        'MCP Instructions',
+      );
+
+      expect(memoryContextManager.getLoadedPaths()).toContain(globalPaths[0]);
+      expect(memoryContextManager.getLoadedPaths()).toContain(envPaths[0]);
+    });
+
+    it('should emit MemoryChanged event when memory is refreshed', async () => {
+      vi.mocked(memoryDiscovery.getGlobalMemoryPaths).mockResolvedValue([
+        '/app/ZERO.md',
+      ]);
+      vi.mocked(memoryDiscovery.getEnvironmentMemoryPaths).mockResolvedValue([
+        '/app/src/ZERO.md',
+      ]);
+      vi.mocked(memoryDiscovery.readZEROMdFiles).mockResolvedValue([
+        { filePath: '/app/ZERO.md', content: 'content' },
+        { filePath: '/app/src/ZERO.md', content: 'env content' },
+      ]);
+
+      await memoryContextManager.refresh();
+
+      expect(coreEvents.emit).toHaveBeenCalledWith(CoreEvent.MemoryChanged, {
+        fileCount: 2,
+      });
+    });
+
+    it('should not load environment memory if folder is not trusted', async () => {
+      vi.mocked(mockConfig.isTrustedFolder).mockReturnValue(false);
+      vi.mocked(memoryDiscovery.getGlobalMemoryPaths).mockResolvedValue([
+        '/home/user/.zero/ZERO.md',
+      ]);
+      vi.mocked(memoryDiscovery.readZEROMdFiles).mockResolvedValue([
+        { filePath: '/home/user/.zero/ZERO.md', content: 'Global Content' },
+      ]);
+
+      await memoryContextManager.refresh();
+
+      expect(memoryDiscovery.getEnvironmentMemoryPaths).not.toHaveBeenCalled();
+      expect(memoryContextManager.getEnvironmentMemory()).toBe('');
+      expect(memoryContextManager.getGlobalMemory()).toContain(
+        'Global Content',
+      );
+    });
+
+    it('should deduplicate files by file identity in case-insensitive filesystems', async () => {
+      const globalPaths = ['/home/user/.zero/ZERO.md'];
+      const envPaths = ['/app/zero.md', '/app/ZERO.md'];
+
+      vi.mocked(memoryDiscovery.getGlobalMemoryPaths).mockResolvedValue(
+        globalPaths,
+      );
+      vi.mocked(memoryDiscovery.getEnvironmentMemoryPaths).mockResolvedValue(
+        envPaths,
+      );
+
+      // mock deduplication to return deduplicated paths (simulating same file)
+      vi.mocked(
+        memoryDiscovery.deduplicatePathsByFileIdentity,
+      ).mockResolvedValue({
+        paths: ['/home/user/.zero/ZERO.md', '/app/zero.md'],
+        identityMap: new Map<string, string>(),
+      });
+
+      vi.mocked(memoryDiscovery.readZEROMdFiles).mockResolvedValue([
+        { filePath: '/home/user/.zero/ZERO.md', content: 'Global Content' },
+        { filePath: '/app/zero.md', content: 'Project Content' },
+      ]);
+
+      await memoryContextManager.refresh();
+
+      expect(
+        memoryDiscovery.deduplicatePathsByFileIdentity,
+      ).toHaveBeenCalledWith(
+        expect.arrayContaining([
+          '/home/user/.zero/ZERO.md',
+          '/app/zero.md',
+          '/app/ZERO.md',
+        ]),
+      );
+      expect(memoryDiscovery.readZEROMdFiles).toHaveBeenCalledWith(
+        ['/home/user/.zero/ZERO.md', '/app/zero.md'],
+        'tree',
+        ['.git'],
+      );
+      expect(memoryContextManager.getEnvironmentMemory()).toContain(
+        'Project Content',
+      );
+    });
+  });
+
+  describe('discoverContext', () => {
+    it('should discover and load new context', async () => {
+      const mockResult: memoryDiscovery.MemoryLoadResult = {
+        files: [{ path: '/app/src/ZERO.md', content: 'Src Content' }],
+      };
+      vi.mocked(memoryDiscovery.loadJitSubdirectoryMemory).mockResolvedValue(
+        mockResult,
+      );
+
+      const result = await memoryContextManager.discoverContext(
+        '/app/src/file.ts',
+        ['/app'],
+      );
+
+      expect(memoryDiscovery.loadJitSubdirectoryMemory).toHaveBeenCalledWith(
+        '/app/src/file.ts',
+        ['/app'],
+        expect.any(Set),
+        expect.any(Set),
+        ['.git'],
+      );
+      expect(result).toMatch(/--- Context from: \/app\/src\/ZERO\.md ---/);
+      expect(result).toContain('Src Content');
+      expect(memoryContextManager.getLoadedPaths()).toContain(
+        '/app/src/ZERO.md',
+      );
+    });
+
+    it('should return empty string if no new files found', async () => {
+      const mockResult: memoryDiscovery.MemoryLoadResult = { files: [] };
+      vi.mocked(memoryDiscovery.loadJitSubdirectoryMemory).mockResolvedValue(
+        mockResult,
+      );
+
+      const result = await memoryContextManager.discoverContext(
+        '/app/src/file.ts',
+        ['/app'],
+      );
+
+      expect(result).toBe('');
+    });
+
+    it('should return empty string if folder is not trusted', async () => {
+      vi.mocked(mockConfig.isTrustedFolder).mockReturnValue(false);
+
+      const result = await memoryContextManager.discoverContext(
+        '/app/src/file.ts',
+        ['/app'],
+      );
+
+      expect(memoryDiscovery.loadJitSubdirectoryMemory).not.toHaveBeenCalled();
+      expect(result).toBe('');
+    });
+
+    it('should pass custom boundary markers from config', async () => {
+      const customMarkers = ['.monorepo-root', 'package.json'];
+      vi.mocked(mockConfig.getMemoryBoundaryMarkers).mockReturnValue(
+        customMarkers,
+      );
+      vi.mocked(memoryDiscovery.loadJitSubdirectoryMemory).mockResolvedValue({
+        files: [],
+      });
+
+      await memoryContextManager.discoverContext('/app/src/file.ts', ['/app']);
+
+      expect(memoryDiscovery.loadJitSubdirectoryMemory).toHaveBeenCalledWith(
+        '/app/src/file.ts',
+        ['/app'],
+        expect.any(Set),
+        expect.any(Set),
+        customMarkers,
+      );
+    });
+  });
+});

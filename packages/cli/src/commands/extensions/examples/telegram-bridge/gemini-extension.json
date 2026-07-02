@@ -1,0 +1,31 @@
+{
+  "name": "telegram-bridge",
+  "version": "1.0.0",
+  "description": "Connect Gemini CLI to Telegram Bot for messaging and terminal access from anywhere",
+  "author": "Custom",
+  "mcpServers": {
+    "telegram-bridge": {
+      "command": "node",
+      "args": ["${extensionPath}/dist/server.js"],
+      "env": {
+        "TELEGRAM_BOT_TOKEN": "${TELEGRAM_BOT_TOKEN}",
+        "GEMINI_ACP_MODE": "true"
+      }
+    }
+  },
+  "commands": [
+    {
+      "name": "telegram:connect",
+      "description": "Connect to Telegram bot",
+      "args": ["--token", "<telegram_bot_token>"]
+    },
+    {
+      "name": "telegram:disconnect",
+      "description": "Disconnect from Telegram bot"
+    },
+    {
+      "name": "telegram:status",
+      "description": "Check Telegram connection status"
+    }
+  ]
+}

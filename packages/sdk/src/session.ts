@@ -1,0 +1,316 @@
+/**
+ * @license
+ * Copyright 2026 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import {
+  type AgentLoopContext,
+  Config,
+  type ConfigParameters,
+  AuthType,
+  PREVIEW_ZERO_MODEL_AUTO,
+  ZEROEventType,
+  type ToolCallRequestInfo,
+  type ServerZEROStreamEvent,
+  type ZEROClient,
+  type Content,
+  scheduleAgentTools,
+  getAuthTypeFromEnv,
+  type ToolRegistry,
+  loadSkillsFromDir,
+  ActivateSkillTool,
+  type ResumedSessionData,
+  PolicyDecision,
+} from '@google/zero-cli-core';
+
+import { type Tool, SdkTool } from './tool.js';
+import { SdkAgentFilesystem } from './fs.js';
+import { SdkAgentShell } from './shell.js';
+import type {
+  SessionContext,
+  ZEROCliAgentOptions,
+  SystemInstructions,
+} from './types.js';
+import type { SkillReference } from './skills.js';
+import type { ZEROCliAgent } from './agent.js';
+
+/**
+ * Represents an interactive conversation session with a ZERO CLI agent.
+ *
+ * A session manages the conversation lifecycle: initialization, sending messages
+ * via streaming, handling tool calls, and maintaining conversation history.
+ *
+ * Create a session via {@link ZEROCliAgent.session} or resume one with
+ * {@link ZEROCliAgent.resumeSession}.
+ */
+export class ZEROCliSession {
+  private readonly config: Config;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private readonly tools: Array<Tool<any>>;
+  private readonly skillRefs: SkillReference[];
+  private readonly instructions: SystemInstructions | undefined;
+  private client: ZEROClient | undefined;
+  private initialized = false;
+
+  constructor(
+    options: ZEROCliAgentOptions,
+    private readonly sessionId: string,
+    private readonly agent: ZEROCliAgent,
+    private readonly resumedData?: ResumedSessionData,
+  ) {
+    this.instructions = options.instructions;
+    const cwd = options.cwd || process.cwd();
+    this.tools = options.tools || [];
+    this.skillRefs = options.skills || [];
+
+    let initialMemory = '';
+    if (typeof this.instructions === 'string') {
+      initialMemory = this.instructions;
+    } else if (this.instructions && typeof this.instructions !== 'function') {
+      throw new Error('Instructions must be a string or a function.');
+    }
+
+    const configParams: ConfigParameters = {
+      sessionId: this.sessionId,
+      targetDir: cwd,
+      cwd,
+      debugMode: options.debug ?? false,
+      model: options.model || PREVIEW_ZERO_MODEL_AUTO,
+      userMemory: initialMemory,
+      // Minimal config
+      enableHooks: false,
+      mcpEnabled: false,
+      extensionsEnabled: false,
+      recordResponses: options.recordResponses,
+      fakeResponses: options.fakeResponses,
+      skillsSupport: true,
+      adminSkillsEnabled: true,
+      policyEngineConfig: {
+        // TODO: Revisit this default when we have a mechanism for wiring up approvals
+        defaultDecision: PolicyDecision.ALLOW,
+      },
+    };
+
+    this.config = new Config(configParams);
+  }
+
+  /**
+   * The unique identifier for this session.
+   */
+  get id(): string {
+    return this.sessionId;
+  }
+
+  /**
+   * Initialize the session by setting up authentication, loading skills,
+   * and registering tools. Must be called before {@link sendStream}.
+   *
+   * This method is idempotent — calling it multiple times has no effect
+   * after the first successful initialization.
+   */
+  async initialize(): Promise<void> {
+    if (this.initialized) return;
+
+    const authType = getAuthTypeFromEnv() || AuthType.COMPUTE_ADC;
+
+    await this.config.refreshAuth(authType);
+    await this.config.initialize();
+
+    // Load additional skills from options
+    if (this.skillRefs.length > 0) {
+      const skillManager = this.config.getSkillManager();
+
+      const loadPromises = this.skillRefs.map(async (ref) => {
+        try {
+          if (ref.type === 'dir') {
+            return await loadSkillsFromDir(ref.path);
+          }
+        } catch (e) {
+          // TODO: refactor this to use a proper logger interface
+          // eslint-disable-next-line no-console
+          console.error(`Failed to load skills from ${ref.path}:`, e);
+        }
+        return [];
+      });
+
+      const loadedSkills = (await Promise.all(loadPromises)).flat();
+
+      if (loadedSkills.length > 0) {
+        skillManager.addSkills(loadedSkills);
+      }
+    }
+
+    // Re-register ActivateSkillTool if we have skills
+    const skillManager = this.config.getSkillManager();
+    if (skillManager.getSkills().length > 0) {
+      const loopContext: AgentLoopContext = this.config;
+      const registry = loopContext.toolRegistry;
+      const toolName = ActivateSkillTool.Name;
+      if (registry.getTool(toolName)) {
+        registry.unregisterTool(toolName);
+      }
+      registry.registerTool(
+        new ActivateSkillTool(this.config, loopContext.messageBus),
+      );
+    }
+
+    // Register tools
+    const loopContext2: AgentLoopContext = this.config;
+    const registry = loopContext2.toolRegistry;
+    const messageBus = loopContext2.messageBus;
+
+    for (const toolDef of this.tools) {
+      const sdkTool = new SdkTool(toolDef, messageBus, this.agent, undefined);
+      registry.registerTool(sdkTool);
+    }
+
+    this.client = loopContext2.zeroClient;
+
+    if (this.resumedData) {
+      const history: Content[] = this.resumedData.conversation.messages.map(
+        (m) => {
+          const role = m.type === 'zero' ? 'model' : 'user';
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          let parts: any[] = [];
+          if (Array.isArray(m.content)) {
+            parts = m.content;
+          } else if (m.content) {
+            parts = [{ text: String(m.content) }];
+          }
+          return { role, parts };
+        },
+      );
+      await this.client.resumeChat(history, this.resumedData);
+    }
+
+    this.initialized = true;
+  }
+
+  /**
+   * Send a prompt to the model and yield streaming events as they arrive.
+   *
+   * Handles the full agentic loop: sends the user prompt, streams model
+   * responses, executes any tool calls the model requests, and continues
+   * the loop until the model produces a final response with no tool calls.
+   *
+   * @param prompt - The user message to send.
+   * @param signal - Optional {@link AbortSignal} to cancel the stream.
+   * @yields {@link ServerZEROStreamEvent} events as they are received from
+   *   the model.
+   *
+   * @example
+   * ```typescript
+   * for await (const event of session.sendStream('Explain this code')) {
+   *   if (event.type === ZEROEventType.ModelResponse) {
+   *     process.stdout.write(event.value);
+   *   }
+   * }
+   * ```
+   */
+  async *sendStream(
+    prompt: string,
+    signal?: AbortSignal,
+  ): AsyncGenerator<ServerZEROStreamEvent> {
+    if (!this.initialized || !this.client) {
+      await this.initialize();
+    }
+    const client = this.client!;
+    const abortSignal = signal ?? new AbortController().signal;
+    const sessionId = this.config.getSessionId();
+
+    const fs = new SdkAgentFilesystem(this.config);
+    const shell = new SdkAgentShell(this.config);
+
+    let request: Parameters<ZEROClient['sendMessageStream']>[0] = [
+      { text: prompt },
+    ];
+
+    while (true) {
+      if (typeof this.instructions === 'function') {
+        const context: SessionContext = {
+          sessionId,
+          transcript: client.getHistory(),
+          cwd: this.config.getWorkingDir(),
+          timestamp: new Date().toISOString(),
+          fs,
+          shell,
+          agent: this.agent,
+          session: this,
+        };
+        const newInstructions = await this.instructions(context);
+        this.config.setUserMemory(newInstructions);
+        client.updateSystemInstruction();
+      }
+
+      const stream = client.sendMessageStream(request, abortSignal, sessionId);
+
+      const toolCallsToSchedule: ToolCallRequestInfo[] = [];
+
+      for await (const event of stream) {
+        yield event;
+        if (event.type === ZEROEventType.ToolCallRequest) {
+          const toolCall = event.value;
+          let args = toolCall.args;
+          if (typeof args === 'string') {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            args = JSON.parse(args);
+          }
+          toolCallsToSchedule.push({
+            ...toolCall,
+            args,
+            isClientInitiated: false,
+            prompt_id: sessionId,
+          });
+        }
+      }
+
+      if (toolCallsToSchedule.length === 0) {
+        break;
+      }
+
+      const transcript: readonly Content[] = client.getHistory();
+      const context: SessionContext = {
+        sessionId,
+        transcript,
+        cwd: this.config.getWorkingDir(),
+        timestamp: new Date().toISOString(),
+        fs,
+        shell,
+        agent: this.agent,
+        session: this,
+      };
+
+      const loopContext: AgentLoopContext = this.config;
+      const originalRegistry = loopContext.toolRegistry;
+      const scopedRegistry: ToolRegistry = originalRegistry.clone();
+      const originalGetTool = scopedRegistry.getTool.bind(scopedRegistry);
+      scopedRegistry.getTool = (name: string) => {
+        const tool = originalGetTool(name);
+        if (tool instanceof SdkTool) {
+          return tool.bindContext(context);
+        }
+        return tool;
+      };
+
+      const completedCalls = await scheduleAgentTools(
+        this.config,
+        toolCallsToSchedule,
+        {
+          schedulerId: sessionId,
+          toolRegistry: scopedRegistry,
+          signal: abortSignal,
+        },
+      );
+
+      const functionResponses = completedCalls.flatMap(
+        (call) => call.response.responseParts,
+      );
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
+      request = functionResponses as unknown as Parameters<
+        ZEROClient['sendMessageStream']
+      >[0];
+    }
+  }
+}
